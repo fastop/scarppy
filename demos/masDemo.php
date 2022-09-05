@@ -26,18 +26,13 @@
         //Create an array to add extracted images to.
         $extractedAnchors = array();
 
-        //content-body
         
         //Loop through the anchors tags that DOMDocument found.
         foreach($anchorTags as $anchorTag){
         
-            //Get the href attribute of the anchor.
-            $aHref = $anchorTag->getAttribute('href');
+            $aHref = $anchorTag->getAttribute('href');            
+            $aTitle = $anchorTag->textContent;
         
-            //Get the title text of the anchor, if it exists.
-            $aTitle = $anchorTag->getAttribute('title');
-        
-            //Add the anchor details to $extractedAnchors array.
             $extractedAnchors[] = array(
                 'href' => $aHref,
                 'title' => $aTitle
@@ -45,7 +40,6 @@
         }
         
         echo "<pre>";
-        //print_r our array of anchors.
         print_r($extractedAnchors);
 
 
