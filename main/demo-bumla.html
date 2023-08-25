@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-navbar-fixed-top">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,21 @@
 </head>
 <body>
     
+    <nav class="navbar box is-fixed-top " role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <img src="imgs/scarrpy_logo.png" alt="Scarpy" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      </nav>
+
+
     <section class="section">
         <div class="container">
             <h1 class="title"> SCARPY!!!</h1>
@@ -43,16 +58,47 @@
         <div class="column bordo"> Segunda columna </div>
      </div>
      <div class="columns">
-        <div class="column bordo"> Primera columna </div>
+        <div class="column is-6 bordo"> Primera columna </div>
+        <div class="column is-3 bordo"> Segunda columna </div>
         <div class="column bordo"> Segunda columna </div>
-        <div class="column bordo"> Tercera columna </div>
-        <div class="column bordo"> Cuarta columna </div>
      </div>
 
 
+
+
+    <div class="section">
+     <div class="box">
+        
+            <div class="columns">
+                <div class="column is-6 bordo ">A</div>
+                <div class="column is-3  ">B</div>
+                <div class="column is-3  ">
+                    <div class="columns  ">
+                        <div class="column"> 
+                            <button class="button is-info" style="width: 100%;">HOLA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
      <style>
         .bordo { border: solid thin black;}
      </style>
+
 
 </body>
 </html>
