@@ -50,7 +50,8 @@ https://cnnespanol.cnn.com/2023/08/15/autoridades-migratorias-mexico-rescatan-23
 https://vanguardia.com.mx/noticias/en-pleno-verano-frente-frio-se-acerca-a-mexico-golpeara-con-descenso-en-las-temperaturas-fuertes-vientos-y-granizadas-LI8903148
 https://aristeguinoticias.com/1508/mexico/unam-se-coloca-en-ranking-de-mejores-universidades-a-nivel-mundial/\
 https://www.elfinanciero.com.mx/nacional/2023/08/15/perfil-adela-ramos-la-diputada-de-morena-que-esta-en-contra-de-los-libros-de-texto-de-la-sep/
-https://www.elfinanciero.com.mx/estados/2023/08/15/jovenes-desaparecidos-en-jalisco-hallan-segundo-auto-en-el-que-iban-hay-presuntos-restos-humanos/";
+https://www.elfinanciero.com.mx/estados/2023/08/15/jovenes-desaparecidos-en-jalisco-hallan-segundo-auto-en-el-que-iban-hay-presuntos-restos-humanos/
+www.putasyputos.com";
 
  
 
@@ -63,9 +64,16 @@ https://www.elfinanciero.com.mx/estados/2023/08/15/jovenes-desaparecidos-en-jali
 
         $fURL = str_replace('.','_', str_replace('www.','',$URL.""));
 
+        
         //call_user_func_array(array(__NAMESPACE__ .'\Urls', 'escapadah_com'), array(trim($url)));
-        call_user_func_array(array($SITES, $fURL), array(trim($url)));
         //call_user_func_array(array($SITES, 'escapadah_com'), array(trim($url)));
+
+           if(!call_user_func_array(array($SITES, $fURL), array(trim($url)))){
+             //SI trono... nos vamos a una funcion manejadores de errores...
+                 call_user_func_array(array($SITES, "error_handler"), array(trim($url)))
+           }
+        
+        
         
                    
         // echo $URL."<br>";

@@ -32,7 +32,7 @@ class Urls {
  
             $title = $rawTitle[0]->textContent; //Titulina BAMM!
             
-            echo "<stron> >>".$title."</strong>";
+            echo "<strong> >>".$title."</strong>";
 
            // foreach($rawTitle as $AT){
            //          print_r($AT);
@@ -107,7 +107,9 @@ class Urls {
         }
 
 
+        function error_handler(string $url){
 
+        }
 
 
         /**
