@@ -25,7 +25,19 @@ class Urls {
 
         function aristeguinoticias_com($url){
 
-            echo $url;
+            echo $url."<br>";
+                        
+            $DOM = $this->getMyDOM($url); 
+            $rawTitle = $DOM->getElementsByTagName('h1');
+ 
+            $title = $rawTitle[0]->textContent; //Titulina BAMM!
+            
+            echo "<stron> >>".$title."</strong>";
+
+           // foreach($rawTitle as $AT){
+           //          print_r($AT);
+           // }
+
         }
 
 
@@ -33,14 +45,14 @@ class Urls {
 
             //echo $url;
             
-               $DOM = $this->getMyDOM($url); 
-                $anchorTags = $DOM->getElementsByTagName('a');
-
-                print_r($anchorTags);
-
-                foreach($anchorTags as $AT){
-                         print_r($AT);
-                }
+             //  $DOM = $this->getMyDOM($url); 
+             //   $anchorTags = $DOM->getElementsByTagName('H1');
+//
+             //   print_r($anchorTags);
+//
+             //   foreach($anchorTags as $AT){
+             //            print_r($AT);
+             //   }
 //
 
 //               // .titulo-principal

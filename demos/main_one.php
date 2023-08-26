@@ -39,7 +39,18 @@ https://www.mibolsillo.com/tips/Por-estas-4-causas-debes-cambiar-de-titular-tu-r
 https://www.excelsior.com.mx/adrenalina/reloj-ricardo-ten-glasgow/1603401
 https://www.infobae.com/mexico/2023/08/15/amlo-reta-a-ministros-de-la-scjn-a-frenar-distribucion-de-libros-de-texto-a-ver-si-se-atreven/
 https://latinus.us/2023/08/15/mancera-impugna-tribunal-electoral-exclusion-proceso-frente-amplio-candidatura/
-https://latinus.us/politica/amlo-se-reunira-con-biden-en-noviembre-en-eu";
+https://latinus.us/politica/amlo-se-reunira-con-biden-en-noviembre-en-eu
+https://aristeguinoticias.com/1508/kiosko/barbie-rinde-tributo-a-maria-felix/
+https://www.elfinanciero.com.mx/nacional/2023/08/15/perfil-adela-ramos-la-diputada-de-morena-que-esta-en-contra-de-los-libros-de-texto-de-la-sep/
+https://www.elfinanciero.com.mx/nacional/2023/08/15/tormenta-tropical-hilary-con-posibilidad-de-huracan-lluvias-en-vivo/
+https://www.eluniversal.com.mx/elecciones/enrique-de-la-madrid-queda-fuera-de-la-contienda-interna-del-frente-amplio-por-mexico/
+https://www.elfinanciero.com.mx/mis-finanzas/2023/08/15/buen-fin-rifa-sat-de-500-millones-de-pesos-como-participar/
+https://www.dgcs.unam.mx/boletin/bdboletin/2023_622.html
+https://cnnespanol.cnn.com/2023/08/15/autoridades-migratorias-mexico-rescatan-231-migrantes-trailer-puebla-trax/
+https://vanguardia.com.mx/noticias/en-pleno-verano-frente-frio-se-acerca-a-mexico-golpeara-con-descenso-en-las-temperaturas-fuertes-vientos-y-granizadas-LI8903148
+https://aristeguinoticias.com/1508/mexico/unam-se-coloca-en-ranking-de-mejores-universidades-a-nivel-mundial/\
+https://www.elfinanciero.com.mx/nacional/2023/08/15/perfil-adela-ramos-la-diputada-de-morena-que-esta-en-contra-de-los-libros-de-texto-de-la-sep/
+https://www.elfinanciero.com.mx/estados/2023/08/15/jovenes-desaparecidos-en-jalisco-hallan-segundo-auto-en-el-que-iban-hay-presuntos-restos-humanos/";
 
  
 
