@@ -12,8 +12,7 @@ namespace Foobar;
  ****************************************************** */ 
 
 
-include "Urls.class.php";
-
+include "Urls.class.php"; 
 
 $SITES = new Urls();
 
@@ -41,6 +40,8 @@ https://www.excelsior.com.mx/adrenalina/reloj-ricardo-ten-glasgow/1603401
 https://www.infobae.com/mexico/2023/08/15/amlo-reta-a-ministros-de-la-scjn-a-frenar-distribucion-de-libros-de-texto-a-ver-si-se-atreven/
 https://latinus.us/2023/08/15/mancera-impugna-tribunal-electoral-exclusion-proceso-frente-amplio-candidatura/
 https://latinus.us/politica/amlo-se-reunira-con-biden-en-noviembre-en-eu";
+
+ 
 
     $URLX = explode(PHP_EOL, $urls); //Explotamos los END OF LINE
 

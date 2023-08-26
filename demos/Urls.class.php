@@ -1,5 +1,6 @@
 <?php
 namespace Foobar;
+use DOMDocument;
  /** ****************************************************
  *  @file Urls.class.php 
  * 
@@ -13,8 +14,7 @@ namespace Foobar;
 
 
 class Urls {
-
-          
+ 
          /** CONSTRUCTOR */
         function __construct() { //Inicializamos en el constructor...
         }
@@ -25,7 +25,16 @@ class Urls {
          */
 
         function escapadah_com(string $url){
+            //Una vez con con la URL nos vamos a meter al sitio muajaja
+
             echo $url;
+
+            $data = file_get_contents($url);        
+            $htmlString = $data;
+
+                $htmlDom = new DOMDocument; //Creamos un nuevo DOMDocument        
+                @$htmlDom->loadHTML($htmlString); //Cargamos el HTML en String
+
         }
 
         function soynomada_news(string $url){
