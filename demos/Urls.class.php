@@ -1,6 +1,6 @@
 <?php
-namespace Foobar;
-use DOMDocument;
+// namespace Foobar;
+// use DOMDocument;
  /** ****************************************************
  *  @file Urls.class.php 
  * 
@@ -19,22 +19,39 @@ class Urls {
         function __construct() { //Inicializamos en el constructor...
         }
 
- 
         /**
          *  Funciones (metodoss) para procesar lo de cada pagina
-         */
+         */ 
 
-        function escapadah_com(string $url){
-            //Una vez con con la URL nos vamos a meter al sitio muajaja
+        function aristeguinoticias_com($url){
 
             echo $url;
+        }
 
-            $data = file_get_contents($url);        
-            $htmlString = $data;
 
-                $htmlDom = new DOMDocument; //Creamos un nuevo DOMDocument        
-                @$htmlDom->loadHTML($htmlString); //Cargamos el HTML en String
+        function escapadah_com(string $url){
 
+            //echo $url;
+            
+               $DOM = $this->getMyDOM($url); 
+                $anchorTags = $DOM->getElementsByTagName('a');
+
+                print_r($anchorTags);
+
+                foreach($anchorTags as $AT){
+                         print_r($AT);
+                }
+//
+
+//               // .titulo-principal
+//
+//               foreach($anchorTags as $i =>$anchorTag){
+//
+//                        echo $anchorTag."<br>";
+//               }
+
+              //  echo $data;
+ 
         }
 
         function soynomada_news(string $url){
@@ -103,6 +120,25 @@ class Urls {
          }
 
 
+         /** 
+          *   @brief Metodo para crear un objeto DOM segun la URL dada
+          *     
+          *   @param url		    Url del sitio a escarvar (string)
+          *   @return htmlDOM		Retrono x (Objeto DOMDocument)
+          */
+         static function getMyDOM($url){            
+            
+            //Contexto
+            $context = stream_context_create(array("http" => array(
+                "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36")));
+
+            $data = file_get_contents($url, false, $context);
+
+                $htmlDOM = new DOMDocument; //Creamos un nuevo DOMDocument        
+                 @$htmlDOM->loadHTML($data); //Cargamos el HTML en String
+
+            return $htmlDOM;
+         }
  
 
 

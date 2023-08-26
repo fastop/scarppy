@@ -1,5 +1,5 @@
 <?php
-namespace Foobar;
+// namespace Foobar;
  /** ****************************************************
  *  @file main_one.php 
  * 
@@ -52,7 +52,9 @@ https://latinus.us/politica/amlo-se-reunira-con-biden-en-noviembre-en-eu";
 
         $fURL = str_replace('.','_', str_replace('www.','',$URL.""));
 
-        call_user_func_array(array(__NAMESPACE__ .'\Urls', 'escapadah_com'), array(trim($url)));
+        //call_user_func_array(array(__NAMESPACE__ .'\Urls', 'escapadah_com'), array(trim($url)));
+        call_user_func_array(array($SITES, $fURL), array(trim($url)));
+        //call_user_func_array(array($SITES, 'escapadah_com'), array(trim($url)));
         
                    
         // echo $URL."<br>";
