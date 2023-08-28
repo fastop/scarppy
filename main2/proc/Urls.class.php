@@ -1,6 +1,5 @@
 <?php
-// namespace Foobar;
-// use DOMDocument;
+
  /** ****************************************************
  *  @file Urls.class.php 
  * 
@@ -23,35 +22,29 @@ class Urls {
          *  Funciones (metodoss) para procesar lo de cada pagina
          */ 
 
-        function aristeguinoticias_com($url){
+        function aristeguinoticias_com(string $url, $PPP){
 
-            //echo $url."<br>";
-                        
-            $DOM = $this->getMyDOM($url); 
+           $html = $PPP->file_get_dom($url);
+           // print_r($html);
 
-            //echo $DOM->textContent;
-            echo "<br>------------------------------------<br>";
+           echo $html('.titulo-principal', 0)->getPlainText();
+           echo "<br>";
+           echo $html('.wrappercont', 0)->getPlainText();
+           echo "<br>";
+           echo "<br> >> ";
+           
 
-            $rawTitle = $DOM->getElementsByTagName('h1');
-            $TITLE = $rawTitle[0]->textContent; //Titulina BAMM!
-            
-              echo "<strong> >>".$TITLE."</strong>";
+           $image = urldecode($html('img[src] .full', 0)->src);
 
-           // foreach($rawTitle as $AT){
-           //          print_r($AT);
-           // }
-
-           echo "<br>------------------------------------<br>";
-           $CONTENT = $DOM->getElementsByTagName('div')[0]->textContent;
-           echo $CONTENT;
-           echo "<br>------------------------------------<br>";
-
-
+           $image = explode("=", $image);
+           $image = explode("&",$image[1]);
+           
+           echo $image[0];
 
         }
 
 
-        function escapadah_com(string $url){
+        function escapadah_com(string $url, $PPP){
 
             //echo $url;
             
@@ -76,43 +69,43 @@ class Urls {
  
         }
 
-        function soynomada_news(string $url){
+        function soynomada_news(string $url, $PPP){
             echo $url;
         }
 
-        function mibolsillo_com(string $url){
+        function mibolsillo_com(string $url, $PPP){
             echo $url;
         }
 
-        function excelsior_com_mx(string $url){
+        function excelsior_com_mx(string $url, $PPP){
             echo $url;
         }
 
-        function infobae_com(string $url){
+        function infobae_com(string $url, $PPP){
             echo $url;
         }
 
-        function latinus_us(string $url){
+        function latinus_us(string $url, $PPP){
             echo $url;
         }
 
-        function elfinanciero_com_mx(string $url){
+        function elfinanciero_com_mx(string $url, $PPP){
             echo $url;
         }
 
-        function eluniversal_com_mx(string $url){
+        function eluniversal_com_mx(string $url, $PPP){
             echo $url;
         }
 
-        function dgcs_unam_mx(string $url){
+        function dgcs_unam_mx(string $url, $PPP){
             echo $url;
         }
 
-        function cnnespanol_cnn_com(string $url){
+        function cnnespanol_cnn_com(string $url, $PPP){
             echo $url;
         }
 
-        function vanguardia_com_mx(string $url){
+        function vanguardia_com_mx(string $url, $PPP){
             echo $url;
         }
 

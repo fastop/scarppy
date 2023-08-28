@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarpy B.o.T</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css"> 
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+            crossorigin="anonymous"></script>
+
+    <style>
+        /*.bgColorLogo { background-color: #008583 !important;}*/
+        .bgColorLogo { background-color:#F3F3F3 !important;}
+        
+  
+    </style>            
+
+            
+</head>
+<body>
+  <div id="initialLoader" class="pageloader is-active bgColorLogo"><span class="title">Pageloader</span></div>
+
+  <nav class="navbar box" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <img src="imgs/scarrpy_logo.png" alt="Scarpy" width="112" height="28">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav> 
+
+  <!--       -->
+  <div class="section" id="mainSection"> 
+    <div class="box has-text-right">
+
+      <textarea class="textarea" id="links" placeholder="Coloque los links separados por enters"></textarea>
+      <button id="btnProcLinks" class="button is-info mt-3"> Next >> </button>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="section" style="display: none;" id="secondSection">
+
+    <div class="box">
+       
+           <div class="columns">
+               <div class="column is-6 ">Title</div>
+               <div class="column is-3  ">Site</div>
+               <div class="column is-3  ">
+                   <div class="columns  ">
+                       <div class="column"> 
+                           <button class="button is-info" style="width: 100%;">Ver</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+     </div>
+
+     <div class="box">
+       
+      <div class="columns">
+          <div class="column is-6  ">En pleno verano, Frente Frío se acerca a México... golpeará con descenso en las temperaturas, fuertes vientos y granizadas</div>
+          <div class="column is-3  ">vanguardia.com.mx</div>
+          <div class="column is-3  ">
+              <div class="columns  ">
+                  <div class="column"> 
+                      <button class="button is-info" style="width: 100%;">Ver</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>     
+
+
+  <div class="box">
+       
+    <div class="columns">
+        <div class="column is-6 bordo ">Title</div>
+        <div class="column is-3  ">B</div>
+        <div class="column is-3  ">
+            <div class="columns  ">
+                <div class="column"> 
+                    <button class="button is-info" style="width: 100%;">Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+
+   </div>
+
+<script>
+ 
+
+  $(function(){ 
+  
+      $("#initialLoader").removeClass("is-active");
+
+        
+        $("#btnProcLinks").click(function(){ toStep2Two(); });
+  
+   });
+
+
+
+
+   function toStep2Two(){
+
+        if($("#links").val().length > 0){ //Validacion rapida pitera...
+
+          //Primero Ocultamos el anterior
+          $("#mainSection").hide();
+          $("#secondSection").show();
+
+        }
+        else
+            alert("No seas cabron y metele links");
+
+   }
+
+
+
+   function linkProcessor(){
+
+    $.ajax({
+        url: "",
+        type: "POST",
+        data: { opc: x },
+        dataType: 'json',
+        success: function (RES) {
+          console.log(RES);
+        },
+        error: function (jqXHR, status, error) {
+          console.log("ERROR: algo fallo por ahi... ");
+          console.log(jqXHR);
+        }
+    });
+
+   }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

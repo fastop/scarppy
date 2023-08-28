@@ -1,5 +1,5 @@
 <?php
-// namespace Foobar;
+
  /** ****************************************************
  *  @file main_one.php 
  * 
@@ -11,26 +11,14 @@
  *  @version 1.0 
  ****************************************************** */ 
 
-
+include('../libs/pharse/pharse.php');
 include "Urls.class.php"; 
 
+$PPP = new Pharse();//Pharser
 $SITES = new Urls();
 
 echo "<pre>";
-
-//Obtenemos las URLS a mogollon!
-/*$urls = "www.escapadah.com
-www.soynomada.news
-www.mibolsillo.com
-www.excelsior.com.mx
-www.infobae.com
-latinus.us
-www.elfinanciero.com.mx
-www.eluniversal.com.mx
-www.dgcs.unam.mx
-cnnespanol.cnn.com
-vanguardia.com.mx";
-*/
+ 
 
 $urls = "https://aristeguinoticias.com/1108/mundo/nino-encuentra-en-alemania-moneda-romana-con-1800-anos-de-antiguedad/
 https://www.escapadah.com/destinos/2023/8/11/aguas-turquesa-arenas-doradas-asi-es-puertecitos-un-oasis-de-mar-desierto-en-bc-12620.html
@@ -79,7 +67,7 @@ https://aristeguinoticias.com/2808/kiosko/elton-john-pasa-la-noche-en-el-hospita
 
 
             if(is_callable(array($SITES, $fURL)))
-                call_user_func_array(array($SITES, $fURL), array(trim($url)));
+                call_user_func_array(array($SITES, $fURL), array(trim($url), $PPP));
             else
                 echo "NONONONONONO";
   
