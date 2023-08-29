@@ -35,7 +35,7 @@ class Urls {
            
 
            $REX["TITLE"] = $html('.titulo-principal', 0)->getPlainText();
-           $REX["CONTENT"] = $html('.wrappercont', 0)->getPlainText();
+           $REX["CONTENT"] = $html('.wrappercont', 0)->html();
            $REX["IMG"] = $image[0];
            
 
