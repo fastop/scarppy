@@ -22,24 +22,32 @@ class Urls {
          *  Funciones (metodoss) para procesar lo de cada pagina
          */ 
 
+
+
         function aristeguinoticias_com(string $url, $PPP){
 
            $html = $PPP->file_get_dom($url);
-           // print_r($html);
-
-           echo $html('.titulo-principal', 0)->getPlainText();
-           echo "<br>";
-           echo $html('.wrappercont', 0)->getPlainText();
-           echo "<br>";
-           echo "<br> >> ";
-           
 
            $image = urldecode($html('img[src] .full', 0)->src);
 
            $image = explode("=", $image);
-           $image = explode("&",$image[1]);
+           $image = explode("&",$image[1]); //$image[0];
            
-           echo $image[0];
+
+           $REX["TITLE"] = $html('.titulo-principal', 0)->getPlainText();
+           $REX["CONTENT"] = $html('.wrappercont', 0)->getPlainText();
+           $REX["IMG"] = $image[0];
+           
+
+           // echo ">> <strong>".$REX["TITLE"]."</strong>";
+           // echo "<br>";
+           //  echo $REX["CONTENT"];
+           // echo "<br>";
+           // 
+           // echo $REX["IMG"];
+           // echo "<br>";
+
+           return $REX; //Array
 
         }
 

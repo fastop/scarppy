@@ -64,16 +64,17 @@ https://aristeguinoticias.com/2808/kiosko/elton-john-pasa-la-noche-en-el-hospita
         //call_user_func_array(array(__NAMESPACE__ .'\Urls', 'escapadah_com'), array(trim($url)));
         //call_user_func_array(array($SITES, 'escapadah_com'), array(trim($url)));
 
+            if(is_callable(array($SITES, $fURL))){
+                $REX = call_user_func_array(array($SITES, $fURL), array(trim($url), $PPP));
 
-
-            if(is_callable(array($SITES, $fURL)))
-                call_user_func_array(array($SITES, $fURL), array(trim($url), $PPP));
+                print_r($REX);
+            }
             else
                 echo "NONONONONONO";
   
                    
-         // echo $URL."<br>";
-        echo "<br>";
+
+
 
     }
 
