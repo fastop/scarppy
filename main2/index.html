@@ -7,8 +7,9 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css"> 
+     
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
@@ -17,14 +18,18 @@
     <style>
         /*.bgColorLogo { background-color: #008583 !important;}*/
         .bgColorLogo { background-color:#F3F3F3 !important;}
+        .w100 { width: 100%; }
+        .mTitle { font-weight: bold;}
         
+        .linkz { color:blueviolet}
+        .pointer { cursor: pointer;}
   
     </style>            
 
             
 </head>
 <body>
-  <div id="initialLoader" class="pageloader is-active bgColorLogo"><span class="title">Pageloader</span></div>
+  <div id="initialLoader"class="pageloader is-active bgColorLogo"><span class="title">Pageloader</span></div>
 
   <nav class="navbar box" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -41,7 +46,7 @@
   </nav> 
 
   <!--       -->
-  <div class="section" id="mainSection"> 
+  <div class="section" id="mainSection"  style="display: none;" > 
     <div class="box has-text-right">
 
       <textarea class="textarea" id="links" placeholder="Coloque los links separados por enters"></textarea>
@@ -53,54 +58,147 @@
 
 
 
-  <div class="section" style="display: none;" id="secondSection">
+  <div class="section" style=" " id="secondSection">
 
-    <div class="box">
-       
+    <div class="box">      
            <div class="columns">
-               <div class="column is-6 ">Title</div>
-               <div class="column is-3  ">Site</div>
-               <div class="column is-3  ">
-                   <div class="columns  ">
+              <div class="column is-2 pointer">
+                <img src="https://editorial.aristeguinoticias.com/wp-content/uploads/2023/08/maria-felix-barbie-mattel-15082023.jpg">
+              </div>
+               <div class="column is-8">
+                 <div>
+                    <span class="mTitle pointer">Aguas turquesa y arenas doradas: así es Puertecitos, un oasis de mar y desierto en BC </span>                    
+                    <button class="button is-small">          
+                      <span class="icon is-medium">
+                          <i class="far fa-clipboard"></i>
+                      </span>
+                  </button>
+                </div>
+                 <div class="pointer">Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona 
+                      Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcio ...
+                 </div>
+               </div>
+               <div class="column is-2">
+                   <div class="columns ">
                        <div class="column"> 
-                           <button class="button is-info" style="width: 100%;">Ver</button>
+                           <button class="button is-info w100"><span>PLAIN</span><span class="icon"><i class="far fa-clipboard"></i></span></button> <p>&nbsp;</p>
+                           <button class="button is-info w100"><span>HTML</span> <span class="icon"><i class="far fa-clipboard"></i></span></button>
                        </div>
                    </div>
                </div>
            </div>
-     </div>
+           <div class="columns">
+             <div class="column is-12 linkz pointer">
+                https://vanguardia.com.mx/noticias/en-pleno-verano-frente-frio-se-acerca-a-mexico-golpeara-con-descenso-en-las-temperaturas-fuertes-vientos-y-granizadas-LI8903148
+              </div>
+           </div>
+    </div> 
 
-     <div class="box">
-       
+
+  
+    <div class="box">      
       <div class="columns">
-          <div class="column is-6  ">En pleno verano, Frente Frío se acerca a México... golpeará con descenso en las temperaturas, fuertes vientos y granizadas</div>
-          <div class="column is-3  ">vanguardia.com.mx</div>
-          <div class="column is-3  ">
-              <div class="columns  ">
+         <div class="column is-2">
+           <img src="https://editorial.aristeguinoticias.com/wp-content/uploads/2023/08/maria-felix-barbie-mattel-15082023.jpg">
+         </div>
+          <div class="column is-8">
+            <div>
+               <span class="mTitle">Aguas turquesa y arenas doradas: así es Puertecitos, un oasis de mar y desierto en BC </span>                    
+               <button class="button is-small">          
+                 <span class="icon is-medium">
+                     <i class="far fa-clipboard"></i>
+                 </span>
+             </button>
+           </div>
+            <div>Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona 
+                 Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcio ...
+            </div>
+          </div>
+          <div class="column is-2">
+              <div class="columns ">
                   <div class="column"> 
-                      <button class="button is-info" style="width: 100%;">Ver</button>
+                      <button class="button is-info w100"><span>PLAIN</span><span class="icon"><i class="far fa-clipboard"></i></span></button> <p>&nbsp;</p>
+                      <button class="button is-info w100"><span>HTML</span> <span class="icon"><i class="far fa-clipboard"></i></span></button>
                   </div>
               </div>
           </div>
       </div>
-  </div>     
+      <div class="columns">
+        <div class="column is-12 linkz">
+           https://vanguardia.com.mx/noticias/en-pleno-verano-frente-frio-se-acerca-a-mexico-golpeara-con-descenso-en-las-temperaturas-fuertes-vientos-y-granizadas-LI8903148
+         </div>
+      </div>
+</div> 
 
 
-  <div class="box">
-       
-    <div class="columns">
-        <div class="column is-6 bordo ">Title</div>
-        <div class="column is-3  ">B</div>
-        <div class="column is-3  ">
-            <div class="columns  ">
-                <div class="column"> 
-                    <button class="button is-info" style="width: 100%;">Ver</button>
-                </div>
-            </div>
+<div class="box">      
+  <div class="columns">
+     <div class="column is-2">
+       <img src="https://editorial.aristeguinoticias.com/wp-content/uploads/2023/08/maria-felix-barbie-mattel-15082023.jpg">
+     </div>
+      <div class="column is-8">
+        <div>
+           <span class="mTitle">Aguas turquesa y arenas doradas: así es Puertecitos, un oasis de mar y desierto en BC </span>                    
+           <button class="button is-small">          
+             <span class="icon is-medium">
+                 <i class="far fa-clipboard"></i>
+             </span>
+         </button>
+       </div>
+        <div>Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona 
+             Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcio ...
         </div>
-    </div>
-</div>  
+      </div>
+      <div class="column is-2">
+          <div class="columns ">
+              <div class="column"> 
+                  <button class="button is-info w100"><span>PLAIN</span><span class="icon"><i class="far fa-clipboard"></i></span></button> <p>&nbsp;</p>
+                  <button class="button is-info w100"><span>HTML</span> <span class="icon"><i class="far fa-clipboard"></i></span></button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="columns">
+    <div class="column is-12 linkz">
+       https://vanguardia.com.mx/noticias/en-pleno-verano-frente-frio-se-acerca-a-mexico-golpeara-con-descenso-en-las-temperaturas-fuertes-vientos-y-granizadas-LI8903148
+     </div>
+  </div>
+</div> 
 
+
+<div class="box">      
+  <div class="columns">
+     <div class="column is-2">
+       <img src="https://editorial.aristeguinoticias.com/wp-content/uploads/2023/08/maria-felix-barbie-mattel-15082023.jpg">
+     </div>
+      <div class="column is-8">
+        <div>
+           <span class="mTitle">Aguas turquesa y arenas doradas: así es Puertecitos, un oasis de mar y desierto en BC </span>                    
+           <button class="button is-small">          
+             <span class="icon is-medium">
+                 <i class="far fa-clipboard"></i>
+             </span>
+         </button>
+       </div>
+        <div>Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcion mamalona 
+             Descripcion mamalona Descripcion mamalona Descripcion mamalona Descripcio ...
+        </div>
+      </div>
+      <div class="column is-2">
+          <div class="columns ">
+              <div class="column"> 
+                  <button class="button is-info w100"><span>PLAIN</span><span class="icon"><i class="far fa-clipboard"></i></span></button> <p>&nbsp;</p>
+                  <button class="button is-info w100"><span>HTML</span> <span class="icon"><i class="far fa-clipboard"></i></span></button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="columns">
+    <div class="column is-12 linkz">
+       https://vanguardia.com.mx/noticias/en-pleno-verano-frente-frio-se-acerca-a-mexico-golpeara-con-descenso-en-las-temperaturas-fuertes-vientos-y-granizadas-LI8903148
+     </div>
+  </div>
+</div> 
 
 
    </div>
