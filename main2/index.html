@@ -24,7 +24,13 @@
         .linkz { color:blueviolet}
         .pointer { cursor: pointer;}
   
-    </style>            
+        .loader {	border: 2px solid #3e8ed0;
+	                border-right-color: #33220e;
+	                border-top-color: #008583;
+	                height: 3em;
+	                width: 3em;
+                }
+    </style>
 
             
 </head>
@@ -60,6 +66,14 @@
 
   <div class="section" style=" " id="secondSection">
 
+    <span class="bulma-loader-mixin"></span>
+
+    <span class="loader"></span>
+    
+
+
+
+<!-- 
     <div class="box">      
            <div class="columns">
               <div class="column is-2 pointer">
@@ -200,68 +214,13 @@
   </div>
 </div> 
 
+-->
+
 
    </div>
 
-<script>
- 
 
-  $(function(){ 
-  
-      $("#initialLoader").removeClass("is-active");
-
-        
-        $("#btnProcLinks").click(function(){ toStep2Two(); });
-  
-   });
-
-
-
-
-   function toStep2Two(){
-
-        if($("#links").val().length > 0){ //Validacion rapida pitera...
-
-          //Primero Ocultamos el anterior
-          $("#mainSection").hide();
-          $("#secondSection").show();
-
-        }
-        else
-            alert("No seas cabron y metele links");
-
-   }
-
-
-
-   function linkProcessor(){
-
-    $.ajax({
-        url: "",
-        type: "POST",
-        data: { opc: x },
-        dataType: 'json',
-        success: function (RES) {
-          console.log(RES);
-        },
-        error: function (jqXHR, status, error) {
-          console.log("ERROR: algo fallo por ahi... ");
-          console.log(jqXHR);
-        }
-    });
-
-   }
-
-
-
-
-
-
-
-</script>
-
-
-
+  <script src="js/scrrpy.js"></script>
 
 </body>
 </html>

@@ -26,29 +26,32 @@ class Urls {
 
         function aristeguinoticias_com(string $url, $PPP){
 
-           $html = $PPP->file_get_dom($url);
+            $html = $PPP->file_get_dom($url);
 
-           $image = urldecode($html('img[src] .full', 0)->src);
+            $image = urldecode($html('img[src] .full', 0)->src);
+    
+            //Quitamos los link de "Te puede interesar"
+            foreach($html('strong, b') as $element) {
 
-           $image = explode("=", $image);
-           $image = explode("&",$image[1]); //$image[0];
-           
+                    $tmp = trim($element->getPlainText());
 
-           $REX["TITLE"] = $html('.titulo-principal', 0)->getPlainText();
-           $REX["CONTENT"] = $html('.wrappercont', 0)->html();
-           $REX["IMG"] = $image[0];
-           
+                    if (fnmatch("Te p* interesar*", $tmp)) {                    
+                        $element->parent->setInnerText("");
+                    }
+            }
+ 
+            $image = explode("&", explode("=",$image)[1])[0];
 
-           // echo ">> <strong>".$REX["TITLE"]."</strong>";
-           // echo "<br>";
-           //  echo $REX["CONTENT"];
-           // echo "<br>";
-           // 
-           // echo $REX["IMG"];
-           // echo "<br>";
+            $REX["TITLE"] = $html('.titulo-principal', 0)->getPlainText();
+            $REX["PLAIN"] = $html('.wrappercont', 0)->getPlainText();
+            $REX["HTML"]  = $html('.wrappercont', 0)->html();
+            $REX["IMG"] = $image;//[0];
+            $REX["URL"] = $url;
+
+            //Recortamos por comodidad de todo tipo ...
+            $REX["PLAIN"] = substr($REX["PLAIN"], 0, 186)."...";
 
            return $REX; //Array
-
         }
 
 
@@ -126,6 +129,7 @@ class Urls {
         /**
          * 
          */
+
 
          /** 
           *   @brief Metodo para splitear url segun dominio
