@@ -11,12 +11,11 @@
  *  @version 1.0 
  ****************************************************** */ 
 
-include('../libs/pharse/pharse.php');
-include "Urls.class.php"; 
+ require '../libs/pharse/pharse.php';
+ require "Urls.class.php"; 
 
 $PPP = new Pharse();//Pharser
 $SITES = new Urls();
- 
  
 
 $urls = "https://aristeguinoticias.com/1108/mundo/nino-encuentra-en-alemania-moneda-romana-con-1800-anos-de-antiguedad/
@@ -41,12 +40,11 @@ https://www.elfinanciero.com.mx/estados/2023/08/15/jovenes-desaparecidos-en-jali
 www.putasyputos.com";
 
 
-$urls = "https://aristeguinoticias.com/1508/kiosko/barbie-rinde-tributo-a-maria-felix/
-https://aristeguinoticias.com/1108/mundo/nino-encuentra-en-alemania-moneda-romana-con-1800-anos-de-antiguedad/
-https://aristeguinoticias.com/1508/mexico/unam-se-coloca-en-ranking-de-mejores-universidades-a-nivel-mundial/
-https://aristeguinoticias.com/2808/kiosko/elton-john-pasa-la-noche-en-el-hospital-tras-sufrir-caida/";
-
-
+ $urls = "https://aristeguinoticias.com/1508/kiosko/barbie-rinde-tributo-a-maria-felix/
+ https://aristeguinoticias.com/1108/mundo/nino-encuentra-en-alemania-moneda-romana-con-1800-anos-de-antiguedad/
+ https://aristeguinoticias.com/1508/mexico/unam-se-coloca-en-ranking-de-mejores-universidades-a-nivel-mundial/
+ https://aristeguinoticias.com/2808/kiosko/elton-john-pasa-la-noche-en-el-hospital-tras-sufrir-caida/";
+ 
 
  
 

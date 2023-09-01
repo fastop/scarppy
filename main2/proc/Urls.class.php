@@ -24,12 +24,10 @@ class Urls {
 
 
 
-        function aristeguinoticias_com(string $url, $PPP){
+        function aristeguinoticias_com($url, $PPP){
 
             $html = $PPP->file_get_dom($url);
 
-            $image = urldecode($html('img[src] .full', 0)->src);
-    
             //Quitamos los link de "Te puede interesar"
             foreach($html('strong, b') as $element) {
 
@@ -40,7 +38,9 @@ class Urls {
                     }
             }
  
+            $image = urldecode($html('img[src] .full', 0)->src);
             $image = explode("&", explode("=",$image)[1])[0];
+           
 
             $REX["TITLE"] = $html('.titulo-principal', 0)->getPlainText();
             $REX["PLAIN"] = $html('.wrappercont', 0)->getPlainText();
@@ -49,7 +49,7 @@ class Urls {
             $REX["URL"] = $url;
 
             //Recortamos por comodidad de todo tipo ...
-            $REX["PLAIN"] = substr($REX["PLAIN"], 0, 186)."...";
+            // $REX["PLAIN"] = substr($REX["PLAIN"], 0, 186)."...";
 
            return $REX; //Array
         }

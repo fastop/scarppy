@@ -1,0 +1,25 @@
+/*
+  SCARPY
+*/
+
+
+        /*.bgColorLogo { background-color: #008583 !important;}*/
+        .bgColorLogo { background-color:#F3F3F3 !important;}
+        .w100 { width: 100%; }
+        .mTitle { font-weight: bold;}
+        
+        .linkz { color:blueviolet}
+        .pointer { cursor: pointer;}
+  
+        .loader {	border: 2px solid #3e8ed0; border-right-color: #33220e; border-top-color: #008583;
+	                height: 3em; width: 3em; margin-left: 29%;  }
+
+        #loadr { text-align: center; width: 10rem; margin-left: 50%;   transform: translate(-50%, -50%); }
+
+
+        .ellipsis { white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis; }
+
+        #toasty { width: 300px; padding: 3px; background-color: black; opacity: 0.5; color: #CCC; 
+                  border-radius: 5px; text-align: center; position: fixed; left:50%; transform: translate(-50%, -50%); display: none;  }
