@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scarpy B.o.T</title>
-
-
+ 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="dark.css">
+    
 
 </head>
 <body>
@@ -34,7 +35,7 @@
             </p>
 
             
-            <button class="button"> Button </button>
+            <button class="button"  id="toggle"> Button </button>
             <button class="button is-primary"> Button </button>
             <button class="button is-info"> Button </button>
 
@@ -87,7 +88,7 @@
 
 
 
-
+<button> CAMBIALE  </button>
 
 
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
@@ -100,5 +101,22 @@
      </style>
 
 
+
+<script>
+
+const body = document.querySelector('body');
+const toggle = document.getElementById('toggle');
+
+    toggle.addEventListener("click", () => {
+        const bodyCheck = body.classList.contains('dark');
+        if (bodyCheck) {
+            body.className = ''
+        } else {
+            body.className = "dark"
+    }
+    })
+
+
+</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
  *  @version 1.0 
  ****************************************************** */ 
 
- require '../libs/pharse/pharse.php';
+ require "../libs/pharse/pharse.php";
  require "Urls.class.php"; 
 
 $PPP = new Pharse();//Pharser

@@ -162,11 +162,13 @@ $(function(){
 
         const AMP ="%27";
               TITULO = AMP+TITULO+AMP;
-              CONTENIDO = AMP+CONTENIDO+AMP;
-              URL = AMP+"Fuente: "+URL+AMP;
+              CONTENIDO = AMP+""+AMP; //AMP+CONTENIDO+AMP;
+              URL = AMP+URL+AMP; // AMP+"Fuente: "+AMP; //AMP+"Fuente: "+URL+AMP;
  
           
-          location.href="javascript:var TITULIN="+TITULO+", CONTENIDO="+CONTENIDO+",d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),f=%27https://www.feeling.com.mx/site/wp-admin/press-this.php%27,l=d.location,e=encodeURIComponent,u=f+%27?u=%27+e(l.href)+%27&t=%27+TITULIN+%27&s=%27+e(CONTENIDO)+%27&v=4%27;a=function(){if(!w.open(u,%27t%27,%27toolbar=0,resizable=1,scrollbars=1,status=1,width=720,height=570%27))l.href=u;};if (/Firefox/.test(navigator.userAgent)) setTimeout(a, 0); else a();void(0)"
+          URI ="javascript:var TITULIN="+TITULO+",URL="+URL+", CONTENIDO="+CONTENIDO;
+          URI +="d=document,w=window,e=w.get:OSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),f=%27https://www.feeling.com.mx/site/wp-admin/press-this.php%27,l=d.location,e=encodeURIComponent,u=f+%27?u=%27+e(URL)+%27&t=%27+TITULIN+%27&s=%27+e(CONTENIDO)+%27&v=4%27;a=function(){if(!w.open(u,%27t%27,%27toolbar=0,resizable=1,scrollbars=1,status=1,width=720,height=570%27))l.href=u;};if (/Firefox/.test(navigator.userAgent)) setTimeout(a, 0); else a();void(0)";
 
-    }
-    
+          location.href= URI.replace(/\n/g,'');
+
+    } 
