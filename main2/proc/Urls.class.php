@@ -48,6 +48,8 @@ class Urls {
             $REX["IMG"] = $image;//[0];
             $REX["URL"] = $url;
 
+            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> Aristegui.com</a> </p>";
+
             //Recortamos por comodidad de todo tipo ...
             // $REX["PLAIN"] = substr($REX["PLAIN"], 0, 186)."...";
 
