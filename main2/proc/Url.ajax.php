@@ -46,9 +46,11 @@ www.putasyputos.com";
  https://aristeguinoticias.com/2808/kiosko/elton-john-pasa-la-noche-en-el-hospital-tras-sufrir-caida/";
  
 
+       $urls =  $_POST["links"]; //Lista de links 
  
 
-    $URLX = explode(PHP_EOL, $urls); //Explotamos los END OF LINE
+    // $URLX = explode(PHP_EOL, $urls); //Explotamos los END OF LINE
+    $URLX = explode("\n", $urls); //Explotamos los enters al final de cada url
 
 
     $REX = [];
@@ -67,8 +69,16 @@ www.putasyputos.com";
                 array_push($REX, $TMP);
 
             }
-            else
-                echo "NONONONONONO";
+            else{
+                
+                $TMP["TITLE"] = "❗❗❗ADVERTENCIA❗❗❗";
+                $TMP["PLAIN"] = "No se puede acceder a esta URL!!! ☠️<br/> 👺Por favor acuda con el master de master para solucionar esto :3 ";
+                $TMP["HTML"]  = "No se puede acceder a esta URL!!! ☠️<br/> 👺por favor acuda con el master de master para solucionar esto :3 ";
+                $TMP["IMG"] = "imgs/not_found.jpg";
+                $TMP["URL"] = $url;
+
+                array_push($REX, $TMP);
+            }
   
     }
 

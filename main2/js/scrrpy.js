@@ -13,10 +13,7 @@ $(function(){
     $("#initialLoader").removeClass("is-active");      
     $("#btnProcLinks").click(function(){ toStep2Two(); });
 
-
-    linkProcessor();
-
-      
+  
  });
 
 
@@ -29,6 +26,8 @@ $(function(){
         //Primero Ocultamos el anterior
         $("#mainSection").hide();
         $("#secondSection").show();
+
+        linkProcessor();
 
       }
       else
@@ -46,10 +45,14 @@ $(function(){
     */
     function linkProcessor(){
 
+            let linkz = $("#links").val();
+
+            console.log(linkz)
+
             $.ajax({
                     url: "proc/Url.ajax.php",
                     type: "POST",
-                    data: { opc: '' },
+                    data: { links: linkz },
                     dataType: 'json',
                     success: function (RES) {
                         console.log(RES);                        
