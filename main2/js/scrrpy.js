@@ -13,6 +13,9 @@ $(function(){
     $("#initialLoader").removeClass("is-active");      
     $("#btnProcLinks").click(function(){ toStep2Two(); });
 
+    $(document).on('click','#btnRestart', function(){
+        location.reload();
+    });
   
  });
 
@@ -61,9 +64,10 @@ $(function(){
                     },
                     error: function (jqXHR, status, error) {
                         console.log("ERROR: algo fallo por ahi... ");
-                        console.log(jqXHR);
+                        //console.log(jqXHR);
+                        console.log(jqXHR.responseText);
 
-                        $("#loadrTitle").text("ERROR <br> Paso algo rarito por ahi <br> "+jqXHR);
+                        $("#loadrTitle").html("<strong class='has-text-danger'> ERROR!</strong> <br> Paso algo rarito por ahi <br> <button class='button' id='btnRestart'>Restart</button> ");
 
                     }
             });
@@ -195,19 +199,24 @@ $(function(){
       // let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
       // width=600,height=300,left=100,top=100`;
     
-            URLS.forEach(async(url) => {
+            //URLS.forEach(async(url) => {
 
-                url = url.trim(); // $("#hiddenFrame").attr("src", url);                        
-                myWindow = window.open(url, url, "width=200,height=100");
-                
-                //open(url, "test", params+" top="+(x+100)); 
-                //console.log(url)
+            //    url = url.trim(); // $("#hiddenFrame").attr("src", url);                        
+            //    myWindow = window.open(url, url, "width=200,height=100");
+            //    
+            //    //open(url, "test", params+" top="+(x+100)); 
+            //    //console.log(url)
 
-                setInterval(closePreload, 3000); 
-                myWindow.close();
+            //    setInterval(closePreload, 3000); 
+            //    myWindow.close();
+            //});
 
-            });
 
+            URLX = URLS;//Comocamos en la global
+
+           // preloadShitX();
+
+            inter = setInterval(preloadShitX, 3000);
     }
 
 
@@ -215,6 +224,26 @@ $(function(){
        
     }
 
+
+    let URLX, i=0, inter;
+    function preloadShitX(){
+
+        if(URLX.length > i){
+
+            myWindow = window.open(URLX[i].trim(),URLX[i].trim(),"width=200,height=100");
+            i++;
+                              
+        }
+        else {
+            //myWindow.close();
+            clearInterval(inter);
+            console.log("DONE!");
+        }
+
+
+        
+
+    }
 
 
     

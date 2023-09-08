@@ -57,7 +57,7 @@ class Urls {
         }
 
 
-        function escapadah_com(string $url, $PPP){
+//        function escapadah_com(string $url, $PPP){
 
             //echo $url;
             
@@ -80,27 +80,27 @@ class Urls {
 
               //  echo $data;
  
-        }
+//        }
 
-        function soynomada_news(string $url, $PPP){
-            echo $url;
-        }
-
-        function mibolsillo_com(string $url, $PPP){
-            echo $url;
-        }
-
-        function excelsior_com_mx(string $url, $PPP){
-            echo $url;
-        }
-
-        function infobae_com(string $url, $PPP){
-            echo $url;
-        }
-
-        function latinus_us(string $url, $PPP){
-            echo $url;
-        }
+     //   function soynomada_news(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
+     //   function mibolsillo_com(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
+     //   function excelsior_com_mx(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
+     //   function infobae_com(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
+     //   function latinus_us(string $url, $PPP){
+     //       echo $url;
+     //   }
 
         function elfinanciero_com_mx(string $url, $PPP){
             // echo $url;
@@ -118,22 +118,22 @@ class Urls {
             return $REX;
         }
 
-        function eluniversal_com_mx(string $url, $PPP){
-            echo $url;
-        }
+      //  function eluniversal_com_mx(string $url, $PPP){
+      //      // echo $url;
+      //  }
 
-        function dgcs_unam_mx(string $url, $PPP){
-            echo $url;
-        }
-
-        function cnnespanol_cnn_com(string $url, $PPP){
-            echo $url;
-        }
-
-        function vanguardia_com_mx(string $url, $PPP){
-            echo $url;
-        }
-
+     //   function dgcs_unam_mx(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
+     //   function cnnespanol_cnn_com(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
+     //   function vanguardia_com_mx(string $url, $PPP){
+     //       echo $url;
+     //   }
+//
 
         function error_handler(string $url){
 

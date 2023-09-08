@@ -12,9 +12,9 @@
         .pointer { cursor: pointer;}
   
         .loader {	border: 2px solid #3e8ed0; border-right-color: #33220e; border-top-color: #008583;
-	                height: 3em; width: 3em; margin-left: 29%;  }
+	                height: 3em; width: 3em; margin-left: 42%;  }
 
-        #loadr { text-align: center; width: 10rem; margin-left: 50%; margin-top: 10%;  transform: translate(-50%, -50%); }
+        #loadr { text-align: center; width: 20rem; margin-left: 50%; margin-top: 10%;  transform: translate(-50%, -50%); }
 
 
         .ellipsis { white-space: nowrap;
