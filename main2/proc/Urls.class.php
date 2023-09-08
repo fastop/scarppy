@@ -118,9 +118,10 @@ class Urls {
             return $REX;
         }
 
-      //  function eluniversal_com_mx(string $url, $PPP){
-      //      // echo $url;
-      //  }
+       function eluniversal_com_mx(string $url, $PPP){
+           // echo $url;
+           
+       }
 
      //   function dgcs_unam_mx(string $url, $PPP){
      //       echo $url;
