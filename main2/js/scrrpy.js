@@ -57,12 +57,14 @@ $(function(){
                     success: function (RES) {
                         console.log(RES);                        
                         loadNews(RES);
-
                         $("#loadr").hide();
                     },
                     error: function (jqXHR, status, error) {
                         console.log("ERROR: algo fallo por ahi... ");
                         console.log(jqXHR);
+
+                        $("#loadrTitle").text("ERROR <br> Paso algo rarito por ahi <br> "+jqXHR);
+
                     }
             });
 
@@ -168,6 +170,7 @@ $(function(){
               CONTENIDO =  AMP+""+AMP;//AMP+CONTENIDO+AMP; //
               URL = AMP+""+AMP; // AMP+URL+AMP; //AMP+"Fuente: "+URL+AMP;
  
+        let URLx="";
           
           URLx = "javascript:var TITULIN="+TITULO+",URL="+URL+" ,CONTENIDO="+CONTENIDO+",";
           URLx += "d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),";
@@ -179,4 +182,39 @@ $(function(){
           location.href= URLx;
 
     }
+    
+
+    let myWindow;
+
+    function preloadShit(){
+
+      let linkz = $("#links").val();
+      const URLS = linkz.split("\n");
+      
+
+      // let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+      // width=600,height=300,left=100,top=100`;
+    
+            URLS.forEach(async(url) => {
+
+                url = url.trim(); // $("#hiddenFrame").attr("src", url);                        
+                myWindow = window.open(url, url, "width=200,height=100");
+                
+                //open(url, "test", params+" top="+(x+100)); 
+                //console.log(url)
+
+                setInterval(closePreload, 3000); 
+                myWindow.close();
+
+            });
+
+    }
+
+
+    function closePreload(){
+       
+    }
+
+
+
     

@@ -107,28 +107,15 @@ class Urls {
 
             $html = $PPP->file_get_dom($url);
 
-            echo "<br> --------------------------------------------------- <br>";
-            echo $html('.article-body-wrapper', 0)->getPlainText();
+                $REX["TITLE"] = $html('h1', 0)->getPlainText();
+                $REX["PLAIN"] =  $html('.article-body-wrapper', 0)->getPlainText();
+                $REX["HTML"]  =  $html('.article-body-wrapper', 0)->html();
+                $REX["IMG"] = $html('.iKCNis img[src]', 0)->src;
+                $REX["URL"] = $url;
 
-            echo "<br> --------------------------------------------------- <br>";
-            echo $html('.article-body-wrapper', 0)->html();
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> elfinanciero.com</a> </p>";
 
-            echo "<br> --------------------------------------------------- <br>";
-
-
-            echo $html('.iKCNis img[src]', 0)->src;
-
-            echo "<br> --------------------------------------------------- <br>";
-
-            //$REX["TITLE"] = $html('.titulo-principal', 0)->getPlainText();
-            //$REX["PLAIN"] = $html('.wrappercont', 0)->getPlainText();
-            //$REX["HTML"]  = $html('.wrappercont', 0)->html();
-            //$REX["IMG"] = $image;//[0];
-            //$REX["URL"] = $url;
-//
-            //$REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> Aristegui.com</a> </p>";
-
-
+            return $REX;
         }
 
         function eluniversal_com_mx(string $url, $PPP){
