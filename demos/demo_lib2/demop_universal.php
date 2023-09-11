@@ -43,21 +43,21 @@ echo "<pre>";
 
     echo "<br> --------------------------------------------------- <br>";
 
-    foreach($html('.sc__font-paragraph') as $element) {
-        
-        $tmp = $element->getPlainText();
-      
-          echo "<br>---------- ------- ------- <br>"; 
-
-          if (fnmatch("Lee también:*", $tmp)) {        
-            echo "<strong>ELIMINAMOSM</strong>";          
-            //$element->parent->parent->setInnerText("");
-            //$element->parent->clear();
-        }
-        else
-         echo $tmp;
-        
-     }
+   // foreach($html('.sc__font-paragraph') as $element) {
+   //     
+   //     $tmp = $element->getPlainText();
+   //   
+   //       echo "<br>---------- ------- ------- <br>"; 
+//
+   //       if (fnmatch("Lee también:*", $tmp)) {        
+   //         echo "<strong>ELIMINAMOSM</strong>";          
+   //         //$element->parent->parent->setInnerText("");
+   //         //$element->parent->clear();
+   //     }
+   //     else
+   //      echo $tmp;
+   //     
+   //  }
     
 
       // echo $html('.sc', 0)->html();
@@ -96,8 +96,6 @@ echo "<pre>";
 
 
     
-    
-
 
 
 

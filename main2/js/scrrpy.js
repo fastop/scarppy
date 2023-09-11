@@ -110,7 +110,7 @@ $(function(){
         
          let BOX = ` <div class='box'> 
                             <div class='columns'>
-                                <div class='column is-2 pointer'><img src='${ELE.IMG}' onclick='setToClipboard(\"${ELE.IMG}\", \"Imagen\")'></div>
+                                <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(\"${ELE.IMG}\", \"Imagen\")'></div>
                                 <div class='column is-8'>
                                     <div><span class='mTitle pointer' onclick='setToClipboard(\"${ELE.TITLE}\", \"Titulo\" )'>${ELE.TITLE}</span>
                                         <button class='button is-small' onclick='sendToMAXI(\"${ELE.TITLE}\",\`${ELE.HTML}\`,\"${ELE.URL}\")'> <span class='icon is-medium'> <i class='far fa-clipboard'></i></span></button></div>

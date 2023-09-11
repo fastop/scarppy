@@ -102,8 +102,7 @@ class Urls {
      //       echo $url;
      //   }
 
-        function elfinanciero_com_mx(string $url, $PPP){
-            // echo $url;
+       function elfinanciero_com_mx(string $url, $PPP){
 
             $html = $PPP->file_get_dom($url);
 
@@ -116,12 +115,77 @@ class Urls {
                 $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> elfinanciero.com</a> </p>";
 
             return $REX;
-        }
+       }
 
        function eluniversal_com_mx(string $url, $PPP){
            // echo $url;
+
+           $html = $PPP->file_get_dom($url);
+
+
+           $xHTML ="";
+           $xPLAIN="";
            
+           foreach($html('.sc__font-paragraph') as $element) {
+               
+               $tmp = $element->html();                             
+       
+                 if (!fnmatch("*Lee también:*", $tmp) && !fnmatch("*Suscríbete aquí*", $tmp)  ) {        
+                   
+                       $xHTML .= $element->html();
+                       $xPLAIN.= $element->getPlainText();
+                   // echo $tmp;
+       
+                 }
+                  //else
+                  //  echo "<strong>ELIMINAMOSM</strong>";
+       
+            }
+ 
+           $REX["TITLE"] = $html('.title', 0)->getPlainText();
+           $REX["PLAIN"] = $xPLAIN;
+           $REX["HTML"]  = $xHTML;
+           $REX["IMG"] = "imgs/universal_logo.png";
+           $REX["URL"] = $url;
+
+           $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> eluniversal.com.mx</a> </p>";
+
+           return $REX;
+ 
        }
+
+       function milenio_com(string $url, $PPP){
+          // echo $url;
+           $html = $PPP->file_get_dom($url);
+
+           foreach($html('.nd-related-news-detail-media-dual') as $element) { //Eliminamos la "shit"                      
+               $element->clear();
+           }
+
+           
+          foreach($html('.nd-text-highlights-detail-bold') as $element) {          
+               $element->clear();
+           }
+
+           
+           $last = count($html(".nd-media-detail-base__img"));
+           
+
+           $REX["TITLE"] = $html('.nd-title-headline-title-headline-base__title', 0)->getPlainText();
+           $REX["PLAIN"] = "";//$html('#content-body', 0)->getPlainText();
+           $REX["HTML"]  = $html('#content-body', 0)->html();
+           $REX["IMG"] = $html(".nd-media-detail-base__img", $last-1)->src; //"imgs/milenio_logo.png";
+           $REX["URL"] = $url;
+
+
+           
+           $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> eluniversal.com.mx</a> </p>";
+
+           return $REX;
+
+
+       }
+
 
      //   function dgcs_unam_mx(string $url, $PPP){
      //       echo $url;
