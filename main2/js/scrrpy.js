@@ -111,9 +111,6 @@ $(function(){
 
     */
     function addBox(ELE){
-
-        ELE.HTML = cleanQuote(ELE.HTML);
-        ELE.PLAIN = cleanQuote(ELE.PLAIN);
         
          let BOX = ` <div class='box'> 
                             <div class='columns'>
