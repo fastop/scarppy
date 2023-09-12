@@ -76,7 +76,7 @@ www.putasyputos.com";
                 $TMP["HTML"]  = "No se puede acceder a esta URL!!! ☠️<br/> 👺por favor acuda con el master de master para solucionar esto :3 ";
                 $TMP["IMG"] = "imgs/not_found.jpg";
                 $TMP["URL"] = $url;
-
+                
                 array_push($REX, $TMP);
             }
   

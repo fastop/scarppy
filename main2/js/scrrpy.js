@@ -21,22 +21,23 @@ $(function(){
 
 
 
+  let NEWS = [];
 
- function toStep2Two(){
+    function toStep2Two(){
 
-      if($("#links").val().length > 0){ //Validacion rapida pitera...
+        if($("#links").val().length > 0){ //Validacion rapida pitera...
 
-        //Primero Ocultamos el anterior
-        $("#mainSection").hide();
-        $("#secondSection").show();
+            //Primero Ocultamos el anterior
+            $("#mainSection").hide();
+            $("#secondSection").show();
 
-        linkProcessor();
+            linkProcessor();
 
-      }
-      else
-          alert("No seas cabron y metele links");
+        }
+        else
+            alert("No seas cabron y metele links");
 
- }
+    }
 
 
     /*
@@ -87,7 +88,10 @@ $(function(){
 
         REX.forEach(function(row){
             console.log(row);                
-            $("#secondSection").append(addBox(row));
+            if(row.URL.trim().length>0){
+                $("#secondSection").append(addBox(row));
+                NEWS.push(row);
+            }
         });
 
         //addBox(REX)
@@ -106,20 +110,23 @@ $(function(){
               BOX - Caja con los datos completos (string)
 
     */
-    function addBox(ELE){       
+    function addBox(ELE){
+
+        ELE.HTML = cleanQuote(ELE.HTML);
+        ELE.PLAIN = cleanQuote(ELE.PLAIN);
         
          let BOX = ` <div class='box'> 
                             <div class='columns'>
                                 <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(\"${ELE.IMG}\", \"Imagen\")'></div>
                                 <div class='column is-8'>
-                                    <div><span class='mTitle pointer' onclick='setToClipboard(\"${ELE.TITLE}\", \"Titulo\" )'>${ELE.TITLE}</span>
-                                        <button class='button is-small' onclick='sendToMAXI(\"${ELE.TITLE}\",\`${ELE.HTML}\`,\"${ELE.URL}\")'> <span class='icon is-medium'> <i class='far fa-clipboard'></i></span></button></div>
-                                    <div class='pointer'>${ELE.PLAIN.substr(0, 165)+"..."}</div>
+                                    <div><span class='mTitle pointer' onclick=\'setToClipboard("${ELE.TITLE}", \"Titulo\" )\'>${ELE.TITLE}</span>
+                                        <button class='button is-small' onclick=\'sendToMAXI("${ELE.TITLE}",\`${ELE.HTML}\`,\"${ELE.URL}\")\'> <span class='icon is-medium'> <i class='far fa-clipboard'></i></span></button></div>
+                                    <div class='pointer'>${ELE.PLAIN.substr(0, 250)+"..."}</div>
                                 </div>
                                 <div class='column is-2'>
                                     <div class='columns '>
                                         <div class='column'> 
-                                            <button class='button is-info w100' onclick='setToClipboard(\"${ELE.PLAIN}\", \"Texto Plano\")'><span>PLAIN</span><span class='icon'><i class='far fa-clipboard'></i></span></button><p>&nbsp;</p>
+                                            <button class='button is-info w100' onclick='setToClipboard(\'${ELE.PLAIN}\', \"Texto Plano\")'><span>PLAIN</span><span class='icon'><i class='far fa-clipboard'></i></span></button><p>&nbsp;</p>
                                             <button class='button is-info w100' onclick='setToClipboard(\`${ELE.HTML}\`, \"HTML\")'><span>HTML</span> <span class='icon'><i class='far fa-clipboard'></i></span></button>
                                         </div>
                                     </div>
@@ -142,6 +149,9 @@ $(function(){
           type - Tipo de elemento al que se le dio clic (string)
     */
     function setToClipboard(UDATA, type){
+
+
+        UDATA = decodeURI(UDATA);
 
         $("#toasty").text(type+" copiad@");
         $("#toasty").show(150, function(){ 
@@ -240,10 +250,15 @@ $(function(){
             console.log("DONE!");
         }
 
-
-        
-
     }
 
+
+
+
+
+    function cleanQuote(text){
+        return text.replaceAll("'", "“");  
+      }
+      
 
     
