@@ -114,23 +114,23 @@ $(function(){
         
          let BOX = ` <div class='box'> 
                             <div class='columns'>
-                                <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(\"${ELE.IMG}\", \"Imagen\")'></div>
+                                <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(0,\"IMG\", \"${ELE.IMG}\", \"Imagen\")'></div>
                                 <div class='column is-8'>
-                                    <div><span class='mTitle pointer' onclick=\'setToClipboard("${ELE.TITLE}", \"Titulo\" )\'>${ELE.TITLE}</span>
+                                    <div><span class='mTitle pointer' onclick=\'setToClipboard(0,\"TITLE\", \"Titulo\" )\'>${ELE.TITLE}</span>
                                         <button class='button is-small' onclick=\'sendToMAXI("${ELE.TITLE}",\`${ELE.HTML}\`,\"${ELE.URL}\")\'> <span class='icon is-medium'> <i class='far fa-clipboard'></i></span></button></div>
                                     <div class='pointer'>${ELE.PLAIN.substr(0, 250)+"..."}</div>
                                 </div>
                                 <div class='column is-2'>
                                     <div class='columns '>
                                         <div class='column'> 
-                                            <button class='button is-info w100' onclick='setToClipboard(\'${ELE.PLAIN}\', \"Texto Plano\")'><span>PLAIN</span><span class='icon'><i class='far fa-clipboard'></i></span></button><p>&nbsp;</p>
-                                            <button class='button is-info w100' onclick='setToClipboard(\`${ELE.HTML}\`, \"HTML\")'><span>HTML</span> <span class='icon'><i class='far fa-clipboard'></i></span></button>
+                                            <button class='button is-info w100' onclick='setToClipboard(0,\"PLAIN\",\"Texto Plano\")'><span>PLAIN</span><span class='icon'><i class='far fa-clipboard'></i></span></button><p>&nbsp;</p>
+                                            <button class='button is-info w100' onclick='setToClipboard(0,\"HTML\",\"HTML\")'><span>HTML</span> <span class='icon'><i class='far fa-clipboard'></i></span></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class='columns'>
-                                <div class='column is-12 linkz pointer ellipsis' onclick='setToClipboard(\"${ELE.URL}\",\"URL\")'>${ELE.URL}</div>
+                                <div class='column is-12 linkz pointer ellipsis' onclick='setToClipboard(0,\"URL\",\"URL\")'>${ELE.URL}</div>
                             </div>
                         </div> `;
         
@@ -142,24 +142,20 @@ $(function(){
        Funcion para copiar un valor directamente al porta-papeles
     
        Parameters:
-          UDATA - Datos a copiar (string)
-          type - Tipo de elemento al que se le dio clic (string)
+          UDATA - Identificado del los Datos a copiar (int)
+          ntype - Tipo de elemento al que se le dio clic (string)
+          type  - Tipo de elemento al que se le dio clic (string)
     */
-    function setToClipboard(UDATA, type){
+    function setToClipboard(UDATA, ntype, type,){
 
-
-        UDATA = decodeURI(UDATA);
+        //UDATA = decodeURI(UDATA);
 
         $("#toasty").text(type+" copiad@");
         $("#toasty").show(150, function(){ 
+            setTimeout(function() { $("#toasty").hide(150) }, 400);
+         });
 
-                     setTimeout(function() { $("#toasty").hide(150) }, 400);
-             });
-
-        navigator.clipboard.writeText(UDATA);
-
-        //$("#toasty").hide(150)
-
+        navigator.clipboard.writeText(NEWS[UDATA][ntype]);
     }
 
 
