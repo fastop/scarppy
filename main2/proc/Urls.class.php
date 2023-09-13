@@ -195,11 +195,42 @@ class Urls {
      //   function dgcs_unam_mx(string $url, $PPP){
      //       echo $url;
      //   }
-//
-     //   function cnnespanol_cnn_com(string $url, $PPP){
-     //       echo $url;
-     //   }
-//
+
+
+
+       function cnnespanol_cnn_com(string $url, $PPP){
+
+          $html = $PPP->file_get_dom(trim($url));
+
+          //Clean Shit!!
+          foreach($html('.storyfull__gallery') as $element) {     
+               $element->clear();
+            }
+    
+            foreach($html('ul') as $element) {     
+                $element->clear();
+             }         
+    
+            foreach($html('.tags') as $element) {     
+                $element->clear();
+             }         
+    
+
+
+          
+          $REX["TITLE"] = $html('.storyfull__title', 0)->getPlainText();
+          $REX["PLAIN"] = $html('.storyfull__body', 0)->getPlainText();
+          $REX["HTML"]  = $html('.storyfull__body', 0)->html();
+          $REX["IMG"] = $html(".image", 0)->src; //Como tiene lazy taaardaaaa
+          $REX["URL"] = $url;
+
+
+       }
+
+
+
+     
+
      //   function vanguardia_com_mx(string $url, $PPP){
      //       echo $url;
      //   }

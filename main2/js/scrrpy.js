@@ -86,10 +86,10 @@ $(function(){
     function loadNews(REX){
 
 
-        REX.forEach(function(row){
+        REX.forEach(function(row, i){
             console.log(row);                
             if(row.URL.trim().length>0){
-                $("#secondSection").append(addBox(row));
+                $("#secondSection").append(addBox(row, i));
                 NEWS.push(row);
             }
         });
@@ -110,27 +110,27 @@ $(function(){
               BOX - Caja con los datos completos (string)
 
     */
-    function addBox(ELE){
+    function addBox(ELE, id){
         
          let BOX = ` <div class='box'> 
                             <div class='columns'>
-                                <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(0,\"IMG\", \"${ELE.IMG}\", \"Imagen\")'></div>
+                                <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(${id},\"IMG\", \"Imagen\")'></div>
                                 <div class='column is-8'>
-                                    <div><span class='mTitle pointer' onclick=\'setToClipboard(0,\"TITLE\", \"Titulo\" )\'>${ELE.TITLE}</span>
-                                        <button class='button is-small' onclick=\'sendToMAXI("${ELE.TITLE}",\`${ELE.HTML}\`,\"${ELE.URL}\")\'> <span class='icon is-medium'> <i class='far fa-clipboard'></i></span></button></div>
-                                    <div class='pointer'>${ELE.PLAIN.substr(0, 250)+"..."}</div>
+                                    <div><span class='mTitle pointer' onclick=\'setToClipboard(${id},\"TITLE\", \"Titulo\" )\'>${ELE.TITLE}</span>
+                                        <button class='button is-small' onclick=\'sendToMAXI("${ELE.TITLE}",\`${ELE.TITLE}\`,\"${ELE.URL}\")\'> <span class='icon is-medium'> <i class='far fa-clipboard'></i></span></button></div>
+                                    <div class='pointer'>${ELE.PLAIN.substr(0, 350)+"..."}</div>
                                 </div>
                                 <div class='column is-2'>
                                     <div class='columns '>
                                         <div class='column'> 
-                                            <button class='button is-info w100' onclick='setToClipboard(0,\"PLAIN\",\"Texto Plano\")'><span>PLAIN</span><span class='icon'><i class='far fa-clipboard'></i></span></button><p>&nbsp;</p>
-                                            <button class='button is-info w100' onclick='setToClipboard(0,\"HTML\",\"HTML\")'><span>HTML</span> <span class='icon'><i class='far fa-clipboard'></i></span></button>
+                                            <button class='button is-info w100' onclick='setToClipboard(${id},\"PLAIN\",\"Texto Plano\")'><span>PLAIN</span><span class='icon'><i class='far fa-clipboard'></i></span></button><p>&nbsp;</p>
+                                            <button class='button is-info w100' onclick='setToClipboard(${id},\"HTML\",\"HTML\")'><span>HTML</span> <span class='icon'><i class='far fa-clipboard'></i></span></button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class='columns'>
-                                <div class='column is-12 linkz pointer ellipsis' onclick='setToClipboard(0,\"URL\",\"URL\")'>${ELE.URL}</div>
+                                <div class='column is-12 linkz pointer ellipsis' onclick='setToClipboard(${id},\"URL\",\"URL\")'>${ELE.URL}</div>
                             </div>
                         </div> `;
         

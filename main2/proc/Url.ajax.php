@@ -58,7 +58,6 @@ www.putasyputos.com";
 
     foreach($URLX  as $url){
 
-
         $URL = $SITES->xplodeURL(trim($url));
         $fURL = str_replace('.','_', str_replace('www.','',$URL.""));
 
