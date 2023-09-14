@@ -23,7 +23,6 @@ class Urls {
          */ 
 
 
-
         function aristeguinoticias_com($url, $PPP){
 
             $html = $PPP->file_get_dom($url);
@@ -58,7 +57,6 @@ class Urls {
 
 
 //        function escapadah_com(string $url, $PPP){
-
             //echo $url;
             
              //  $DOM = $this->getMyDOM($url); 
@@ -170,8 +168,7 @@ class Urls {
                $element->clear();
            }
 
-          
-
+           
            
            $last = count($html(".nd-media-detail-base__img"));
            
@@ -195,15 +192,102 @@ class Urls {
      //   function dgcs_unam_mx(string $url, $PPP){
      //       echo $url;
      //   }
-//
-     //   function cnnespanol_cnn_com(string $url, $PPP){
-     //       echo $url;
-     //   }
-//
-     //   function vanguardia_com_mx(string $url, $PPP){
-     //       echo $url;
-     //   }
-//
+
+
+
+       function cnnespanol_cnn_com(string $url, $PPP){
+
+             $html = $PPP->file_get_dom(trim($url));
+
+               $tray = "/video/";//Por si se viene por "error" algo que es video
+
+               if(stripos($url, $tray)){
+
+          
+                    $REX["TITLE"] = $html('.news__title', 0)->getPlainText();
+                    $REX["PLAIN"] = $html('.news__excerpt', 0)->getPlainText();
+                    $REX["HTML"]  = $html('.news__excerpt', 0)->html();
+                    $REX["IMG"] = "imgs/cnnes_logo.png"; //$html(".image", 0)->src; //Como tiene lazy taaardaaaa
+                    $REX["URL"] = $url;
+
+
+               }
+               else //SI es normalito
+               {
+                    //Clean Shit!!
+                    foreach($html('.storyfull__gallery') as $element) {     
+                         $element->clear();
+                    }
+          
+                    foreach($html('ul') as $element) {     
+                         $element->clear();
+                    }         
+          
+                    foreach($html('.tags') as $element) {     
+                         $element->clear();
+                    }         
+          
+                    $REX["TITLE"] = $html('.storyfull__title', 0)->getPlainText();
+                    $REX["PLAIN"] = $html('.storyfull__body', 0)->getPlainText();
+                    $REX["HTML"]  = $html('.storyfull__body', 0)->html();
+                    $REX["IMG"] = "imgs/cnnes_logo.png"; //$html(".image", 0)->src; //Como tiene lazy taaardaaaa
+                    $REX["URL"] = $url;
+
+               }
+
+               
+               
+               $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> cnnespanol.cnn.com</a> </p>";
+
+          return $REX;
+
+       }
+
+
+
+     
+
+       function vanguardia_com_mx(string $url, $PPP){
+          ///     echo $url;
+
+           $html = $PPP->file_get_dom(trim($url));
+
+
+           //Clean before the action ...
+               foreach($html('.block__title') as $element) { $element->clear(); }
+               foreach($html('#mc_embed_signup') as $element) { $element->clear(); }               
+               foreach($html('.VideoVanguardiapro') as $element) { $element->clear(); }
+               foreach($html('.twitter_text') as $element) { $element->clear(); }
+               
+               foreach($html('#leer') as $element) { $element->clear(); }
+               foreach($html('script') as $element) { $element->clear(); }
+               foreach($html('p[data-mrf-recirculation="Te puede interesar - Entre párrafos"]') as $element) { $element->clear(); }
+  
+               foreach($html('p b') as $element) {             
+                    if(trim($element->getPlainText()) == "TE PUEDE INTERESAR:"){
+                       $element->parent->clear(); 
+                    }
+                }
+        
+                //Images
+                    $tmp =  $html('.cutlineShow img', 0)->attributes["data-srcset"];
+                    $SS =  explode(" ",$tmp);
+                    $image = "https:".$SS[0];
+
+
+                $REX["TITLE"] = $html('.headline', 0)->getPlainText();
+                $REX["PLAIN"] = $html('div[itemprop="articleBody"]', 0)->getPlainText();
+                $REX["HTML"]  = $html('div[itemprop="articleBody"]', 0)->html();
+                $REX["IMG"] =  $image; //$html(".cutlineShow img", 0)->src; //Como tiene lazy taaardaaaa
+                $REX["URL"] = $url;
+
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> vanguardia.com.mx</a> </p>";
+
+                return $REX;
+       }
+
+
+
 
         function error_handler(string $url){
 
