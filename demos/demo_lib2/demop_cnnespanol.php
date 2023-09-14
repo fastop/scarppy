@@ -7,9 +7,12 @@ include('pharse/pharse.php');
     $PPP = new Pharse();
 
  
-      $URL =  "https://cnnespanol.cnn.com/2023/08/15/autoridades-migratorias-mexico-rescatan-231-migrantes-trailer-puebla-trax/";
- 
+    $URL =  "https://cnnespanol.cnn.com/2023/08/15/autoridades-migratorias-mexico-rescatan-231-migrantes-trailer-puebla-trax/";
+    $URL =  "https://cnnespanol.cnn.com/video/jaime-maussan-restos-extraterrestres-ovni-peru-nasca-perspectivas-mexico-tv/";
 
+    $URL =   "https://cnnespanol.cnn.com/2023/09/10/heridos-bala-ataque-caravana-vehiculos-ciudad-fronteriza-mexico-trax/";
+ 
+      
     $html = $PPP->file_get_dom($URL);
     
 
@@ -17,7 +20,12 @@ echo "<pre>";
 
 
      echo "<br> --------------------------------------------------- <br>";
-      echo $html('.storyfull__title', 0)->getPlainText();
+      // echo $html('.storyfull__title', 0)->getPlainText();
+      echo $html('.news__title', 0)->getPlainText();
+      
+
+      
+
      echo "<br> --------------------------------------------------- <br>";
 
      echo $html('.image', 0)->src;
