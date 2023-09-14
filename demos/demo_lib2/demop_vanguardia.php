@@ -43,12 +43,8 @@ echo "<pre>";
 
         if(trim($element->getPlainText()) == "TE PUEDE INTERESAR:"){
             echo "<h1>ME PUEDE INTERESAAARTTT</h1>";
-        
-
-
            $element->parent->clear(); 
         }
-
 
         echo "<br>";
     }
@@ -59,6 +55,12 @@ echo "<pre>";
     // foreach($html("b") as $element) { 
     //     $element->getPlainText(); 
     // }
+ 
+      foreach($html('script') as $element) { 
+        echo $element->getPlainText(); 
+       // $element->clear();
+      } 
+
 
 
     //Eliminamos shit!!!
@@ -83,6 +85,9 @@ echo "<pre>";
     echo "<br> --------------------------------------------------- <br>";
 
 
+    echo '<textarea id="w3review" name="w3review" rows="75" style="width:100%">';
+    echo $html('div[itemprop="articleBody"]', 0)->html();
+    echo "</textarea>";
 
 
 
