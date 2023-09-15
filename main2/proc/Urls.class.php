@@ -91,11 +91,39 @@ class Urls {
      //   function excelsior_com_mx(string $url, $PPP){
      //       echo $url;
      //   }
-//
-     //   function infobae_com(string $url, $PPP){
-     //       echo $url;
-     //   }
-//
+
+
+
+       function infobae_com(string $url, $PPP){
+          // echo $url;
+
+
+          $html = $PPP->file_get_dom(trim($url));
+               
+          $TXT = "";
+          $HTML = "";
+
+          foreach($html('.paragraph') as $element) { 
+                    $TXT .= $element->getPlainText();
+                    $HTML .= $element->html();
+          }
+
+
+          $REX["TITLE"] = $html('.article-headline', 0)->getPlainText();
+          $REX["PLAIN"] = $TXT;
+          $REX["HTML"]  = $HTML;
+          $REX["IMG"] =  $html('.visual__image img', 0)->src;
+          $REX["URL"] = $url;
+
+          $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> https://www.infobae.com/</a> </p>";
+
+     return $REX;
+
+
+
+           
+       }
+
      //   function latinus_us(string $url, $PPP){
      //       echo $url;
      //   }
@@ -189,10 +217,31 @@ class Urls {
        }
 
 
-     //   function dgcs_unam_mx(string $url, $PPP){
-     //       echo $url;
-     //   }
+       function dgcs_unam_mx(string $url, $PPP){
+           // echo $url;
 
+           $html = $PPP->file_get_dom(trim($url));
+               
+               $TXT = "";
+               $HTML = "";
+
+               foreach($html('article p[align="justify"]') as $element) { 
+                         $TXT .= $element->getPlainText();
+                         $HTML .= $element->html();
+               }
+
+
+               $REX["TITLE"] = $html('#content h2', 0)->getPlainText();
+               $REX["PLAIN"] = $TXT;
+               $REX["HTML"]  = $HTML;
+               $REX["IMG"] = "https://www.dgcs.unam.mx/boletin/bdboletin/".$html('.featured img', 0)->src;
+               $REX["URL"] = $url;
+
+               $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> dgcs.unam.mx</a> </p>";
+
+          return $REX;
+
+       }
 
 
        function cnnespanol_cnn_com(string $url, $PPP){
@@ -242,11 +291,7 @@ class Urls {
           return $REX;
 
        }
-
-
-
-     
-
+ 
        function vanguardia_com_mx(string $url, $PPP){
           ///     echo $url;
 
@@ -258,7 +303,7 @@ class Urls {
                foreach($html('#mc_embed_signup') as $element) { $element->clear(); }               
                foreach($html('.VideoVanguardiapro') as $element) { $element->clear(); }
                foreach($html('.twitter_text') as $element) { $element->clear(); }
-               
+
                foreach($html('#leer') as $element) { $element->clear(); }
                foreach($html('script') as $element) { $element->clear(); }
                foreach($html('p[data-mrf-recirculation="Te puede interesar - Entre párrafos"]') as $element) { $element->clear(); }
