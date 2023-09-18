@@ -2,6 +2,8 @@
 
 include('pharse/pharse.php');
 
+error_reporting(0);
+
 
 
     $PPP = new Pharse();
@@ -9,7 +11,7 @@ include('pharse/pharse.php');
 
     $URL =  "https://latinus.us/2023/08/15/mancera-impugna-tribunal-electoral-exclusion-proceso-frente-amplio-candidatura/"; 
     $URL =  "https://latinus.us/2023/09/14/opinion-jesus-silva-herzog-marquez-ebrard-construido-irrelevancia-politica/"; 
-    $URL =  "https://latinus.us/2023/09/14/xochitl-galvez-llama-a-dirigentes-del-frente-amplio-a-evitar-confrontaciones-con-movimiento-ciudadano/"; 
+   // $URL =  "https://latinus.us/2023/09/14/xochitl-galvez-llama-a-dirigentes-del-frente-amplio-a-evitar-confrontaciones-con-movimiento-ciudadano/"; 
 
     
           
@@ -22,9 +24,24 @@ echo "<pre>";
       echo $html('.elementor-widget-container h1', 0)->getPlainText();
     echo "<br> --------------------------------------------------- <br>";
 
-    echo $html('.wp-caption img', 0)->src;
+        $IMAGE = $html('.wp-caption img', 0)->src;
 
-    echo "<br> --------------------------------------------------- <br>";
+        if(is_null($IMAGE))
+            echo "NO hay imagen perrro";
+        else
+            echo "Si hay imagen perrri";
+
+
+
+
+
+        echo $html(".elementor-widget-container")->getPlainText();
+        echo $html(".elementor-widget-container")->getPlainText();
+
+
+
+
+    echo "<br> <strong> ======================================================== </strong> <br>";
 
     $TXT = "";
     $HTML = "";
@@ -45,6 +62,27 @@ echo "<pre>";
     echo $TXT;
     echo "<br> --------------------------------------------------- <br>";
     echo $HTML;
+
+    echo "<br> --------------------------------------------------- <br>";
+    echo "<br> --------------------------------------------------- <br>";    
+
+        //Eliminamos las sugerencias pedorras
+
+        $TERMS = array("Puedes leer:", "Te sugerimos:","Te podría interesar:","Te recomendamos:","Lee también:");
+
+        foreach($html('strong, b') as $element) {
+
+            $tmp = trim($element->getPlainText());
+
+            echo $tmp."<br>";
+
+            if(in_array($tmp, $TERMS)){
+                echo " >> Este perro se va a la ñonga ";
+            }
+        }
+
+
+    echo "<br> --------------------------------------------------- <br>";
 
 
 /*    

@@ -17,8 +17,25 @@ $(function(){
         location.reload();
     });
   
- });
 
+    $("#btnHelp").click(function(){ 
+        //$("#modal_about").addClass("is-active");
+    });
+
+    $("#btnConfig").click(function(){         
+        // $("#modal_about").addClass("is-active");
+    });
+
+    $("#btnAbout").click(function(){ 
+        console.log('Click That Button!!!'); 
+
+        $("#modal_about").addClass("is-active");
+        
+    });
+
+
+ });
+    
 
 
   let NEWS = [];

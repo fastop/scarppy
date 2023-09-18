@@ -97,36 +97,34 @@ class Urls {
        function infobae_com(string $url, $PPP){
           // echo $url;
 
+            $html = $PPP->file_get_dom(trim($url));
+                
+            $TXT = "";
+            $HTML = "";
 
-          $html = $PPP->file_get_dom(trim($url));
-               
-          $TXT = "";
-          $HTML = "";
-
-          foreach($html('.paragraph') as $element) { 
-                    $TXT .= $element->getPlainText();
-                    $HTML .= $element->html();
-          }
-
-
-          $REX["TITLE"] = $html('.article-headline', 0)->getPlainText();
-          $REX["PLAIN"] = $TXT;
-          $REX["HTML"]  = $HTML;
-          $REX["IMG"] =  $html('.visual__image img', 0)->src;
-          $REX["URL"] = $url;
-
-          $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> https://www.infobae.com/</a> </p>";
-
-     return $REX;
+            foreach($html('.paragraph') as $element) { 
+                        $TXT .= $element->getPlainText();
+                        $HTML .= $element->html();
+            }
 
 
+            $REX["TITLE"] = $html('.article-headline', 0)->getPlainText();
+            $REX["PLAIN"] = $TXT;
+            $REX["HTML"]  = $HTML;
+            $REX["IMG"] =  $html('.visual__image img', 0)->src;
+            $REX["URL"] = $url;
 
+            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> https://www.infobae.com/</a> </p>";
+
+            return $REX;
            
        }
 
+
+       
      //   function latinus_us(string $url, $PPP){
      //       echo $url;
-     //   }
+     //   }eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
        function elfinanciero_com_mx(string $url, $PPP){
 
