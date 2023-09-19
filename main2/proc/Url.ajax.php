@@ -14,6 +14,8 @@
  require "../libs/pharse/pharse.php";
  require "Urls.class.php"; 
 
+ error_reporting(0);
+ 
 $PPP = new Pharse();//Pharser
 $SITES = new Urls();
  

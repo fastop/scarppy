@@ -121,10 +121,73 @@ class Urls {
        }
 
 
-       
-     //   function latinus_us(string $url, $PPP){
-     //       echo $url;
-     //   }eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+       function latinus_us(string $url, $PPP){
+        //   echo $url;
+
+
+             $html = $PPP->file_get_dom($url);
+
+            //Primero quitamos la basurita sarrita (da igual si hay o no)
+
+                    //Eliminamos las sugerencias pedorras
+
+                    $TERMS = array("Puedes leer:", "Te sugerimos:","Te podría interesar:","Te recomendamos:","Lee también:");
+
+                    foreach($html('strong, b') as $element) {
+
+                        $tmp = trim($element->getPlainText());
+
+                        if(in_array($tmp, $TERMS)){
+                            $element->clear();
+                        }
+                    }
+
+
+                    //Despues washamos si es video o no y le damos...
+
+                    $IMAGE = $html('.wp-caption img', 0)->src;
+
+                    $TXT = "";
+                    $HTML = "";
+
+                    if(is_null($IMAGE)){
+                            // echo "NO hay imagen perrro";
+                                $PX = $html(".at-above-post");
+                                foreach($PX as $i=>$element) { 
+                                    // echo $element->parent->getPlainText();
+
+                                    $TXT .= $element->parent->getPlainText();
+                                    $HTML .= $element->parent->html();
+                                } 
+                        $IMAGE ="imgs/latinusv_logo.png";
+                    }
+                    else{ 
+                        // echo "Si hay imagen perrri";
+                        $ele = '.elementor-widget-container p';
+                        $PX = $html($ele);
+                        foreach($PX as $i=>$element) { 
+
+                            if($i>1 && $i<count($PX)-1){
+                                $TXT .= $element->getPlainText();
+                                $HTML .= $element->html();                    
+                            }
+                        }
+                    }
+ 
+                 $TITLE = $html('.elementor-widget-container h1', 0)->getPlainText();
+
+ 
+                $REX["TITLE"] = $TITLE;
+                $REX["PLAIN"] = $TXT;
+                $REX["HTML"]  = $HTML;
+                $REX["IMG"] = $IMAGE;
+                $REX["URL"] = $url;
+
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> latinu.us</a> </p>";
+
+            return $REX;
+       }
 
        function elfinanciero_com_mx(string $url, $PPP){
 
@@ -331,6 +394,10 @@ class Urls {
 
 
 
+
+
+
+       //================================================================================================
 
         function error_handler(string $url){
 

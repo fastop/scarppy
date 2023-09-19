@@ -2,7 +2,7 @@
 
 include('pharse/pharse.php');
 
-error_reporting(0);
+  error_reporting(0);
 
 
 
@@ -20,23 +20,140 @@ error_reporting(0);
 echo "<pre>";
 
 
+echo "<br> +-+-+-+-+-++-+-+-+----+-++-+--+-+-+--+-+-+--+-+--+-+-+-+-+-+-+-+-+- <br>";
+
+//Primero quitamos la basurita sarrita (da igual si hay o no)
+
+        //Eliminamos las sugerencias pedorras
+
+        $TERMS = array("Puedes leer:", "Te sugerimos:","Te podría interesar:","Te recomendamos:","Lee también:");
+
+        foreach($html('strong, b') as $element) {
+
+            $tmp = trim($element->getPlainText());
+
+            if(in_array($tmp, $TERMS)){
+                $element->clear();
+            }
+        }
+
+//Despues washamos si es video o no y le damos...
+
+        $IMAGE = $html('.wp-caption img', 0)->src;
+
+            $TXT = "";
+            $HTML = "";
+        
+            if(is_null($IMAGE)){
+                    // echo "NO hay imagen perrro";
+                        $PX = $html(".at-above-post");
+                        foreach($PX as $i=>$element) { 
+                            // echo $element->parent->getPlainText();
+
+                            $TXT .= $element->parent->getPlainText();
+                            $HTML .= $element->parent->html();
+                        } 
+                $IMAGE ="ES VIDEO";
+            }
+            else{ 
+                // echo "Si hay imagen perrri";
+                $ele = '.elementor-widget-container p';
+                $PX = $html($ele);
+                foreach($PX as $i=>$element) { 
+    
+                    if($i>1 && $i<count($PX)-1){
+                        $TXT .= $element->getPlainText();
+                        $HTML .= $element->html();                    
+                    }
+                }
+            }
+
+            $TITLE = $html('.elementor-widget-container h1', 0)->getPlainText();
+
+            echo "<br> --------------------------------------------------- <br>";      
+            echo ">> TITULO: ".$TITLE;
+            echo "<br> --------------------------------------------------- <br>";      
+            echo ">> IMAGEN: ".$IMAGE;                        
+            echo "<br> --------------------------------------------------- <br>";      
+            echo ">>".$TXT;
+            echo "<br> --------------------------------------------------- <br>";      
+            echo ">>".$HTML;
+            echo "<br> --------------------------------------------------- <br>";      
+
+
+
+//Listo (?)
+
+
+
+
+echo "<br> +-+-+-+-+-++-+-+-+----+-++-+--+-+-+--+-+-+--+-+--+-+-+-+-+-+-+-+-+- <br>";
+
+
+/*
+
+
+
+
+
     echo "<br> --------------------------------------------------- <br>";      
       echo $html('.elementor-widget-container h1', 0)->getPlainText();
     echo "<br> --------------------------------------------------- <br>";
 
-        $IMAGE = $html('.wp-caption img', 0)->src;
+        $IMAGE = null;//$html('.wp-caption img', 0)->src;
 
-        if(is_null($IMAGE))
+         
+        $ele= "";
+ 
+        if(is_null($IMAGE)){
             echo "NO hay imagen perrro";
-        else
+            $ele = '.at-above-post';
+
+            $TXT = "";
+            $HTML = "";
+
+
+            $PX = $html($ele);
+            foreach($PX as $i=>$element) { 
+                echo $element->parent->getPlainText();
+
+                $TXT .= $element->parent->getPlainText();
+                $HTML .= $element->parent->html();
+            }
+
+
+            echo $TXT;
+            echo $HTML; 
+
+
+        }
+        else{ 
             echo "Si hay imagen perrri";
+            $ele = '.elementor-widget-container p';
+        }
+  
+
+        $TXT = "";
+        $HTML = "";
+    
+        $PX = $html($ele);
+        foreach($PX as $i=>$element) { 
+    
+            if($i>1 && $i<count($PX)-1){
+                $TXT .= $element->getPlainText();
+                $HTML .= $element->html();
+    
+               // echo "<br>".$i." >> ".$element->getPlainText()."<br>";
+            }
+        }
+
+        echo ">>".$TXT;
+        echo ">>".$HTML;
+
+    
 
 
 
-
-
-        echo $html(".elementor-widget-container")->getPlainText();
-        echo $html(".elementor-widget-container")->getPlainText();
 
 
 
@@ -83,26 +200,5 @@ echo "<pre>";
 
 
     echo "<br> --------------------------------------------------- <br>";
-
-
-/*    
-    $img = "https://www.dgcs.unam.mx/boletin/bdboletin/".$html('.featured img', 0)->src;
-
-    echo $img;
-
-    echo "<br> --------------------------------------------------- <br>";
-
-    $TXT = "";
-    $HTML = "";
-
-    foreach($html('article p[align="justify"]') as $element) { 
-
-            $TXT .= $element->getPlainText();
-            $HTML .= $element->html();
-    }
-
-    echo $TXT;
-    echo $HTML;
-*/
-
  
+ */
