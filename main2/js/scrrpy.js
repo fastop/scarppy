@@ -19,7 +19,7 @@ $(function(){
   
 
     $("#btnHelp").click(function(){ 
-        //$("#modal_about").addClass("is-active");
+        $("#modal_helpers").addClass("is-active");
     });
 
     $("#btnConfig").click(function(){         
