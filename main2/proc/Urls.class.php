@@ -47,7 +47,7 @@ class Urls {
             $REX["IMG"] = $image;//[0];
             $REX["URL"] = $url;
 
-            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> Aristegui.com</a> </p>";
+            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> Aristegui.com</a> </p>";
 
             //Recortamos por comodidad de todo tipo ...
             // $REX["PLAIN"] = substr($REX["PLAIN"], 0, 186)."...";
@@ -88,10 +88,55 @@ class Urls {
      //       echo $url;
      //   }
 //
-     //   function excelsior_com_mx(string $url, $PPP){
-     //       echo $url;
-     //   }
 
+
+
+       function debate_com_mx(string $url, $PPP){
+
+                $context = stream_context_create(
+                    array("http" => array(
+                          "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36" )));   
+
+                $html = $PPP->file_get_dom($url, true, false, $context);
+
+                //Limpiamos la basuritaw
+
+                foreach($html('.inlinearticle') as $element) { $element->clear(); }  // Eliminamos los articulos en el texto
+                foreach($html('.body .list') as $element) { $element->clear(); } //Eliminamos las listas pedorras         
+                foreach($html('.embed') as $element) { $element->clear(); } //Quitamos las alter noticias       
+                foreach($html('.bannercover') as $element) { $element->clear(); } //Quitamos TODA las shits que digan publicidad :V      
+
+
+
+                $REX["TITLE"] = $html('h1', 0)->getPlainText();
+                $REX["PLAIN"] = $html('.body',1)->getPlainText();
+                $REX["HTML"]  = $html('.body',1)->html();
+                $REX["IMG"] = $html('.image img', 0)->src;
+                $REX["URL"] = $url;
+
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> debate.com.mx</a> </p>";
+
+            return $REX;           
+       }
+
+
+
+       function excelsior_com_mx(string $url, $PPP){
+           // echo $url;
+
+           $html = $PPP->file_get_dom(trim($url));
+
+            //Primero tenemos que filtrar por que "ADRENALINA" funciona  completamente diferente :V
+            if(strpos($url,"adrenalina"))
+                $REX = $this->procAadrenalina($html);
+            else
+                $REX = $this->procExcelsiorNormie($html);
+
+            $REX["URL"] = $url;
+            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> excelsior.com.mx/</a> </p>";
+
+          return $REX;
+       }
 
 
        function infobae_com(string $url, $PPP){
@@ -114,13 +159,11 @@ class Urls {
             $REX["IMG"] =  $html('.visual__image img', 0)->src;
             $REX["URL"] = $url;
 
-            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> https://www.infobae.com/</a> </p>";
+            $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> infobae.com/</a> </p>";
 
             return $REX;
            
-       }
-
-
+       } 
 
        function latinus_us(string $url, $PPP){
         //   echo $url;
@@ -184,7 +227,7 @@ class Urls {
                 $REX["IMG"] = $IMAGE;
                 $REX["URL"] = $url;
 
-                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> latinu.us</a> </p>";
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> latinu.us</a> </p>";
 
             return $REX;
        }
@@ -199,7 +242,7 @@ class Urls {
                 $REX["IMG"] = $html('.iKCNis img[src]', 0)->src;
                 $REX["URL"] = $url;
 
-                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> elfinanciero.com</a> </p>";
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> elfinanciero.com</a> </p>";
 
             return $REX;
        }
@@ -235,7 +278,7 @@ class Urls {
            $REX["IMG"] = "imgs/universal_logo.png";
            $REX["URL"] = $url;
 
-           $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> eluniversal.com.mx</a> </p>";
+           $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> eluniversal.com.mx</a> </p>";
 
            return $REX;
  
@@ -270,13 +313,10 @@ class Urls {
 
 
            
-           $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> eluniversal.com.mx</a> </p>";
+           $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> eluniversal.com.mx</a> </p>";
 
            return $REX;
-
-
        }
-
 
        function dgcs_unam_mx(string $url, $PPP){
            // echo $url;
@@ -298,7 +338,7 @@ class Urls {
                $REX["IMG"] = "https://www.dgcs.unam.mx/boletin/bdboletin/".$html('.featured img', 0)->src;
                $REX["URL"] = $url;
 
-               $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> dgcs.unam.mx</a> </p>";
+               $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> dgcs.unam.mx</a> </p>";
 
           return $REX;
 
@@ -347,7 +387,7 @@ class Urls {
 
                
                
-               $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> cnnespanol.cnn.com</a> </p>";
+               $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> cnnespanol.cnn.com</a> </p>";
 
           return $REX;
 
@@ -387,13 +427,83 @@ class Urls {
                 $REX["IMG"] =  $image; //$html(".cutlineShow img", 0)->src; //Como tiene lazy taaardaaaa
                 $REX["URL"] = $url;
 
-                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;T".$url."&quot;T> vanguardia.com.mx</a> </p>";
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> vanguardia.com.mx</a> </p>";
 
                 return $REX;
        }
 
 
 
+       //================================================================================================
+       // FUNCIONES DE SOPORTE
+       //================================================================================================
+
+
+            /** 
+             *   @brief Metodo de ayuda para excelsior!
+             *   SOLO procesa la seccion "ADRENALINA", ya que es totalmente diferente
+             *   al resto.
+             *     
+             *   @param html    Objeto HTML para procesar (obj)
+             *   @return REX	Recursos necesarios (array)
+             */            
+            function procAadrenalina($html){
+
+                $REX["TITLE"] = $html('.node-title', 0)->getPlainText();
+                $REX["IMG"] =  $html('.single-image', 0)->src;
+
+                    //BASURITA 
+                    $html('#block-dfp-300x250-adrenalina-tags-7', 0)->clear(); //Quitamos unos JS que se incrustaba
+
+                    foreach($html('.txt-copyright') as $element){ $element->clear(); }//Quitamos el copy :P
+                    foreach($html('.banner-content-ads') as $element){ $element->clear(); }//Quitamos anuncios :P
+
+
+                    foreach($html('.node-body p a') as $element){ $element->clear(); }//Quitamos las sugerencias en rojo
+                    foreach($html('.node-body div a') as $element){ $element->clear(); }//Quitamos las sugerencias en rojo
+                            
+                    foreach($html('.node-body .dugout-video') as $element){ $element->clear(); }//Quitamos el video
+                    foreach($html('.node-body #dugout-video-0') as $element){ $element->clear(); }//Quitamos el video
+                    
+                    //El problema es el video ...
+                    foreach($html('.dugout-title-bar__title') as $element){ $element->clear(); }//Quitamos el video
+                    foreach($html('#player-1') as $element){ $element->clear(); }
+
+
+                    $REX["PLAIN"] = $html('.node-body', 0)->getPlainText();
+                    $REX["HTML"]  = $html('.node-body', 0)->html();
+
+            
+                return $REX;
+
+            }
+ 
+
+            /** 
+             *   @brief Metodo de ayuda para excelsior!
+             *     
+             *   @param html    Objeto HTML para procesar (obj)
+             *   @return REX	Recursos necesarios (array)
+             */
+            function procExcelsiorNormie($html){
+
+                $REX["TITLE"] = $html(".title",0)->getPlainText();
+
+                //Limpiamos el contenido antes de la accion                
+                foreach($html('.body-node p strong') as $element){ 
+                    
+                    $tmp = trim($element->getPlainText());
+                    //Limpiamos las recomendaciones
+                    if(fnmatch("Te recomen*", $tmp ))
+                        $element->clear();
+                }
+
+                $REX["PLAIN"] = $html(".body-node",0)->getPlainText();
+                $REX["HTML"]  = $html(".body-node",0)->html();
+                $REX["IMG"] = $html(".main-image img[src]",0)->src; 
+        
+                return $REX;
+            }
 
 
 

@@ -72,27 +72,24 @@ include('pharse/pharse.php');
         foreach($html('.body-node p strong') as $element){ 
             //$element->clear(); 
             $tmp = trim($element->getPlainText());
+ 
 
-            echo ">> ".trim($element->getPlainText())."<br>";
-
-
-            $TERMS = array("Te recomendamos:", "Te recomendemos:");
-
-            if(in_array($tmp, $TERMS)){
+            if(fnmatch("Te recomen*", $tmp )){
+                $element->clear();
                 echo "<b>ESTE SE VA</b>";
             }
             else
                echo "<b>NANAIS</b>";
+
+               
+            echo ">> ".$tmp."<br>";
 
         }//Quitamos el video
 
         $REX["PLAIN"] = $html(".body-node",0)->getPlainText();
         $REX["HTML"]  = $html(".body-node",0)->html();
         $REX["IMG"] = $html(".main-image img[src]",0)->src; 
-
-
-
-
+ 
         return $REX;
     }
 
