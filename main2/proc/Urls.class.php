@@ -83,12 +83,70 @@ class Urls {
      //   function soynomada_news(string $url, $PPP){
      //       echo $url;
      //   }
-//
-     //   function mibolsillo_com(string $url, $PPP){
-     //       echo $url;
-     //   }
-//
 
+
+
+
+       function mibolsillo_com(string $url, $PPP){
+           // echo $url;
+
+           $context = stream_context_create(
+            array("http" => array(
+                  "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36" )));   
+
+            $html = $PPP->file_get_dom($url, true, false, $context);
+
+                //Limpiamos las basurillas
+                foreach($html('.banner') as $element) { $element->clear(); }  // Algunos separadores con codigo                
+                foreach($html('#relatedsearches1') as $element) { $element->clear(); } //Related Search 
+                foreach($html('.ck-youtube') as $element) { $element->clear(); } //Related Search 
+
+
+                $TT = array("También te recomendamos*", "También recomendamos*", "También te puede interesar*","Recomendamos*","Lee también*");
+                $TERMSX = array("Puede leer:", "Sigue leyendo:","Te sugerimos leer:","Otros temas de interés:","Además:","Notas relacionadas:","Si quieres ahorrar","Si lo que buscas es ahorrar");
+            
+            
+                //Eliminamos los culeros
+                foreach($html('.newsfull__body p,b') as $element) {
+            
+                    $tmp = $element->getPlainText();
+            
+                    if(fnmatch($TT[0], $tmp) || fnmatch($TT[1], $tmp) || fnmatch($TT[2], $tmp) || fnmatch($TT[3], $tmp)){                        
+                      $element->clear();
+                    }
+            
+                }
+
+                    
+                    $TXT = "";    
+                    $HTML= "";
+                    
+
+                    //Quitamos las recomendaciones
+                    foreach($html('.newsfull__body p, h1, h2, h3, ul, ol') as $element) {
+
+                        $tmp = $element->getPlainText();
+
+                        $rem = explode(",", $tmp); //Para los casos de amazon
+                            if(in_array($rem[0], $TERMSX))                              
+                                break;
+
+                        $TXT .= $element->getPlainText();
+                        $HTML .= $element->html();
+                    }
+
+            
+                $REX["TITLE"] = $html('.newsfull__title', 0)->getPlainText();
+
+                $REX["PLAIN"] = $TXT;
+                $REX["HTML"]  = $HTML;
+                $REX["IMG"] = "https://www.mibolsillo.com".$html('.newsfull__media img', 0)->src;;
+                $REX["URL"] = $url;
+
+                $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> mibolsillo.com</a> </p>";
+
+            return $REX; 
+        }
 
 
        function debate_com_mx(string $url, $PPP){
@@ -116,7 +174,7 @@ class Urls {
 
                 $REX["HTML"]  .= "<p><br/>Fuente: <a href=&quot;".$url."&quot;> debate.com.mx</a> </p>";
 
-            return $REX;           
+            return $REX;  
        }
 
 
