@@ -42,8 +42,12 @@ $(function(){
         $('#tabs li').removeClass('is-active');
         $(this).addClass('is-active');
     
-        $('#tab-content p').removeClass('is-active');
-        $('p[data-content="' + tab + '"]').addClass('is-active');
+        // $('#tab-content div').removeClass('is-active');
+        // $('div[data-content="' + tab + '"]').addClass('is-active');
+
+
+        $('#tab-content .content').addClass('is-hidden');
+        $('#tab-content .content[data-content="' + tab + '"]').removeClass('is-hidden');
       });
 
 
