@@ -28,13 +28,27 @@
         .centre { text-align: center;}
 
 
+        .navbar-burger {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
 
-        /* Tabs */
-        #tab-content p {
-          display: none;
-        }
         
-        #tab-content p.is-active {
-          display: block;
+        /* Dark Mode */      
+        .dark-mode {
+          color:#CCC;
         }
-        
+        .dark-mode:hover {
+          color:#311F0B;
+        }
+
+
+        /* Dark Mode Properties */
+
+      .html-D { background-color: #363636;}
+      .textarea-D {background-color: #b5b5b5;}
+      /*.box-D { background-color: #363636; }*/
+      .box-D { background-color: #4a4a4a; color:white;}
+      .navbar-item-D { background-color: #363636; }
+
