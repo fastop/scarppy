@@ -27,10 +27,7 @@ $(function(){
     });
 
     $("#btnAbout").click(function(){ 
-        console.log('Click That Button!!!'); 
-
-        $("#modal_about").addClass("is-active");
-        
+        $("#modal_about").addClass("is-active");        
     });
 
 
@@ -51,9 +48,15 @@ $(function(){
       });
 
 
+
+      $(".dark-mode").click(function(){ toggleDarkMode(); });
+
+      $("#btnBurger").click(function(){ $("#navbarBasic").toggleClass("hide"); });
+
  });
     
 
+  let dMode = false;
 
   let NEWS = [];
 
@@ -145,8 +148,10 @@ $(function(){
 
     */
     function addBox(ELE, id){
+
+        sclass = (dMode)? "box-D": ""; 
         
-         let BOX = ` <div class='box'> 
+         let BOX = ` <div class='box ${sclass}'> 
                             <div class='columns'>
                                 <div class='column is-2 pointer centre'><img src='${ELE.IMG}' onclick='setToClipboard(${id},\"IMG\", \"Imagen\")'></div>
                                 <div class='column is-8'>
@@ -289,3 +294,17 @@ $(function(){
       
 
     
+
+
+
+      function toggleDarkMode(){
+
+        
+            dMode = (dMode)? false:true;
+
+            $( "html" ).toggleClass("html-D ");
+            $( ".textarea " ).toggleClass("textarea-D");
+            $( ".box " ).toggleClass("box-D");
+            $( ".navbar-item" ).toggleClass("navbar-item-D ");
+
+      }

@@ -30,26 +30,26 @@
 
     <nav class="navbar box" role="navigation" aria-label="main navigation">
 
-
       <div class="navbar-brand navbar-start">
-        <a class="navbar-item" href="index.html">
+        <a class="navbar-item pointer dark-mode" href="index.html">
           <img src="imgs/scarrpy_logo.png" alt="Scarpy" width="112" height="28">
-        </a>
- 
-  
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
- 
+        </a> 
       </div>
 
+      <div class="navbar navbar-end has-text-right">
+        <div class="navbar-item pointer dark-mode navbar-end"><i class="fas fa-adjust"></i></div>
+      </div>
+
+      <a role="button" id="btnBurger" class="navbar-burger navbar-end" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
 
 
-      <div id="navbarBasicExample" class="navbar">
-        <div class="navbar-start">
-    
+
+      <div id="navbarBasic" class="navbar">
+        <div class="navbar-start"> 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link"> </a>
   
@@ -95,14 +95,7 @@
       </div>
        
    </div>
- 
-
-
-
-
-
-
-
+  
 
 
    <!-- MODALES -->
@@ -147,7 +140,7 @@
 
             <div class="tabs is-centered is-toggle is-fullwidth" id="tabs">
               <ul>
-                <li class="is-active" data-tab="1">
+                <li class="is-active is-info" data-tab="1">
                   <a><span class="icon is-small"><i class="fa fa-book"></i></span> <span> Manual </span></a>
                 </li>
                 <li data-tab="2">
@@ -164,12 +157,12 @@
 
             <div id="tab-content">
 
-              <!-- ------------ -->
+              <!-- ------ MAN ------ -->
               <div class="is-active content" data-content="1">
                   Manual
               </div>
 
-              <!-- ------------ -->
+              <!-- ------ SITIOS ------ -->
               <div data-content="2" class="is-hidden content" >
                 
                 Los siguientes sitios se encuentran <strong>disponibles</strong> en scrrrpy. <br/> <br/>
@@ -199,7 +192,6 @@
                   </div>                  
                 </div>
 
-
                 <div class="columns">
                   <div class="column">
  
@@ -224,7 +216,6 @@
 
                   </div>                  
                 </div>
-
 
                 <div class="columns">
                   <div class="column">
@@ -251,7 +242,6 @@
                   </div>                  
                 </div>
  
-
                 <div class="columns">
                   <div class="column">
  
@@ -276,8 +266,6 @@
 
                   </div>                  
                 </div>
- 
-
 
                 <div class="columns">
                   <div class="column">
@@ -304,7 +292,6 @@
                   </div>                  
                 </div>
  
-
                 <div class="columns">
                   <div class="column">
  
@@ -330,17 +317,96 @@
                   </div>                  
                 </div>
 
-
               </div>
 
-              <!-- ------------ -->
+              <!-- ------ ISSUES ------ -->
               <div data-content="3" class="is-hidden content" >
-                Issues
+
+                  <article class="message">
+                    <div class="message-body">
+                      <p class="has-text-weight-medium is-size-5"> Problemas con la imagen del Universal. </p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                    </div>
+                  </article>
+
+
+                  <article class="message is-info">
+                    <div class="message-body is-info">
+                      <p class="has-text-weight-medium is-size-5 is-info"> Titulin </p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                    </div>
+                  </article>
+
+                  <article class="message">
+                    <div class="message-body">
+                      <p class="has-text-weight-medium is-size-5 is-info"> Titulin </p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                    </div>
+                  </article>
+                  
+                  <article class="message is-danger">
+                    <div class="message-body">
+                      <h4> Titulin </h4>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                    </div>
+                  </article>                  
+
+
               </div>
 
-              <!-- ------------ -->
-              <div data-content="4" class="is-hidden content" >
-                FAQs
+              <!-- ------- FAQ  ----- -->
+              <div data-content="4" class="is-hidden content" >                
+
+                <article class="message is-info">
+                  <div class="message-header">
+                    <p>&iquest;Que es esta cosa?</p>
+                  </div>
+                  <div class="message-body">
+                    Scarrpy es una herramienta de <strong>web scraping</strong> ligero basado en pharse (<em>y éste basado en ganon</em>), con la funcionalidad
+                    necesaria para obtener la informacion de cierto sitios de  noticias y hacer un resumen de este SIN tener que visitar 
+                    (o registrarse), estos sitios.
+                  </div>
+                </article>
+
+ 
+                <article class="message is-info">
+                  <div class="message-header">
+                    <p>&iquest; Esta herramienta está completa?</p>
+                  </div>
+                  <div class="message-body">
+                    Esta es una herramienta con un proposito <strong>MUY especifico</strong> y bastante <strong>experimental</strong> ya que al obtener la información 
+                    de diferentes sitios, es posible que en algun momento estos sitios cambien de diseño o de organizacion de datos, por ende se le 
+                    denomina enfocada y especifica a ciertos sitios.
+                  </div>
+                </article>
+
+
+                <article class="message is-info">
+                  <div class="message-header">
+                    <p>&iquest;Que pasa si no funciona con un sitio que quiero?</p>
+                  </div>
+                  <div class="message-body">
+                    Sera necesario ponerse en contacto con el desarrollador para analizar la razon por la cual no funciona. Por lo general
+                    si existe un error, se mostrara un mensaje con el error para notificar al desarrollador. En caso de que el sitio <strong>NO ESTE 
+                    registrado </strong> en el sistema, comuniquelo al desarrollador.
+
+                  </div>
+                </article>
+
+
+                <article class="message is-info">
+                  <div class="message-header">
+                    <p>Como puedo <strong> agregar un SITIO</strong>  para scrapear?</p>
+                  </div>
+                  <div class="message-body">
+                    Por el momento <strong>NO SE PUEDE AGREGAR UN SITIO</strong> de manera dinámica <strong>por parte del usuario</strong>. Es necesario recurrir al desarrollador para que
+                    éste analice el sitio y se realice de la forma mas correcta posible la extracción de información.
+                  </div>
+                </article>                
+
+
+
+
               </div>
             </div>
 
@@ -348,8 +414,8 @@
 
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success">Save changes</button>
-        <button class="button">Cancel</button>
+        <!-- <button class="button is-success">Save changes</button> -->
+        <button class="button">Ok</button>
       </footer>
     </div>
   </div>
