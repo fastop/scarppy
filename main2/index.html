@@ -79,7 +79,7 @@
     <div class="section" id="mainSection" > 
       <div class="box has-text-right">
 
-        <textarea class="textarea" id="links" rows="11" placeholder="Coloque los links separados por enters"></textarea>
+        <textarea class="textarea" id="links" rows="11" placeholder="Coloque los links separados por enters" ></textarea>
         <button id="btnProcLinks" class="button is-info mt-3"> Next >> </button>
 
       </div>
@@ -159,7 +159,124 @@
 
               <!-- ------ MAN ------ -->
               <div class="is-active content" data-content="1">
-                  Manual
+     
+                  <hr/>
+
+                  <article class="message is-info">
+                    <div class="message-header">
+                      <p>Menú</p>
+                    </div>
+                    <div class="message-body">
+                      <ul>
+                        <li><a class="nu-style" href="#titleSecciones">Secciones</a></li>
+                        <li><a class="nu-style" href="#titleQuicky">Quick Start</a></li>
+                      </ul>
+                    </div>
+                  </article>                           
+
+                  
+                  <article class="message">
+                    <div class="message-header">
+                      <p id="titleSecciones">Secciones</p>
+                    </div>
+                    <div class="message-body">
+ 
+                        <ol>
+                          <li><a href="#titleLogo">Logo / Inicio</a></li>
+                          <li><a href="#titleDarkMode">Dark Mode</a></li>
+                          <li><a href="#titleMenu">Menú</a></li>
+                          <li><a href="#titleArea">Area de trabajo</a></li>
+                      </ol>
+                   
+                    </div>
+                  </article>       
+
+              
+                  <hr/>
+                    <h4 id="titleLogo">1. Logo</h4>
+                      El logo, además de mostrar la identidad del sitio, nos lleva al inicio del sistema/ reiniciar el proceso.
+                  <hr/>
+                    <h4 id="titleDarkMode">2. Dark Mode</h4>
+                      En caso de que se cansen los ojitos con tanto blanco, es posible colocar el modo oscuro en el sitio (experimental).
+                  <hr/>     
+                      <h4 id="titleMenu">3. Menú</h4>
+                      Menú del sistema. Dentro de este menú  existen las siguientes opciones.
+                       <ul>
+                          <li><strong>Ayuda</strong>: Seccion para solventar todas las dudas, manual & issues.</li>
+                          <li><strong>Config</strong>: Opciones extras de configuración del sistema. </li>
+                          <li><strong>Acerca de</strong>: Información referente a la versión de sistema.</li>
+                       </ul>
+              
+              
+                   <hr/>     
+                    <h4 id="titleArea">4. &Aacute;rea de trabajo</h4>
+                      Aquí es donde se llevará a cabo todo el trabajo. En un inicio SOLO se mostrará la pantalla principal lista para recibir hipervínculos.<br/><br/>
+              
+                          <img src="imgs/man/main_screen.jpg" class="w100">
+                                                
+                   <article class="message">
+                    <div class="message-header">
+                      <p id="titleQuicky" class="is-size-3 has-text-weight-normal">Quick Start</p>
+                    </div>
+                    <div class="message-body">
+ 
+
+
+
+              
+                    <p>
+                      1.- En la pantalla principal <strong><em>coloque los links necesarios separados por "enters"</em></strong>, después presione el botón <strong>"Next >>"</strong>.</p>
+              
+                      <p>  <img src="imgs/man/qs1.jpg" class="w100"> </p>
+
+                      <article class="message is-danger">
+                        <div class="message-body"> 
+                          <strong>Anotación:</strong> Es posible colocar y procesar una lista completa de links sin embargo, hay que tomar en cuenta que esto puede
+                            ralentizar el sistema ya que hay algunas páginas (como el universal), que tardan mucho en enviar una petición.
+                        </div>
+                      </article>
+
+                    <p> </p>  
+ 
+
+                   <p>
+                    2.- Se desplegará una ventana con un cargador, <strong>espere mientras SCARRPY trabaja</strong>. 
+                    
+                    <article class="message is-info">
+                      <div class="message-body"> 
+                        Dependiendo de la cantidad de páginas a procesar, del servidor y de las peticiones recibidas en cada sitio de noticias, tardara lo suficiente como para prepararse un buen café ☕ o té 🍵. 
+                        En caso de existir algún error, este se mostrará. Hay ocasiones donde se da un error por "time-out", esto quiere decir que se pasó el tiempo de espera de procesamiento (dependiendo 
+                        de la configuración del servidor puede ser de entre 20 segundos a 2 minutos).
+                      </div>
+                    </article>
+
+   
+                   </p>
+
+
+                   <p>
+                    3.- Presione el boton "Next >>".
+                   </p>
+
+
+                   
+                  </div>
+                </article>       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
 
               <!-- ------ SITIOS ------ -->
@@ -322,34 +439,63 @@
               <!-- ------ ISSUES ------ -->
               <div data-content="3" class="is-hidden content" >
 
-                  <article class="message">
+                  <article class="message is-danger">
                     <div class="message-body">
                       <p class="has-text-weight-medium is-size-5"> Problemas con la imagen del Universal. </p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                      Las imágenes del "Universal" utilizan algo llamado "lazy loading", esto quiere decir que cargan las imágenes conforme se cargue la página. 
+                      El proceso de captura de información obtiene la página en "crudo", antes de que carguen algunos elementos como estos que se cargan al vuelo, es por ello que
+                      la imagen no se puede descargar aquí.
                     </div>
                   </article>
 
 
                   <article class="message is-info">
                     <div class="message-body is-info">
-                      <p class="has-text-weight-medium is-size-5 is-info"> Titulin </p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                      <p class="has-text-weight-medium is-size-5 is-info"> Videos en MILENIO. </p>
+                      Milenio tiene un apartado en el cual puede mostrar el video en lugar de la imagen representativa. Solamente trucha con eso.
                     </div>
                   </article>
 
-                  <article class="message">
-                    <div class="message-body">
-                      <p class="has-text-weight-medium is-size-5 is-info"> Titulin </p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-                    </div>
-                  </article>
-                  
                   <article class="message is-danger">
                     <div class="message-body">
-                      <h4> Titulin </h4>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                      <p class="has-text-weight-medium is-size-5 is-info"> Problemas con la imagen de CNN-Español. </p>
+                      Otro sitio con "lazy loading". No hay imágenes para esto.
                     </div>
-                  </article>                  
+                  </article>
+
+                  <article class="message is-danger">
+                    <div class="message-body">
+                      <p class="has-text-weight-medium is-size-5 is-info"> Imagen diferente en UNAM.</p>
+                      Hay ocasiones en las cuales se puede mostrar una imagen diferente a la del articulo relacionado.
+                      Esto se da ya que en ciertos artículos colocan un video como encabezado en lugar de utilizar una imagen.
+                    </div>
+                  </article>              
+
+                  <article class="message is-info">
+                    <div class="message-body is-info">
+                      <p class="has-text-weight-medium is-size-5 is-info"> Videos en LATINUS. </p>
+                      Las publicaciones con video pueden generar una captura errónea de imagen.
+                    </div>
+                  </article>
+
+                  <article class="message is-info">
+                    <div class="message-body is-info">
+                      <p class="has-text-weight-medium is-size-5 is-info"> Problemas con Excelsior. </p>
+                      Excelsior cuenta con varios problemas, siendo los más relevantes los siguientes: <br><br>
+                       - No es posible quitar el video de anuncio incrustado ya que este se carga DESPUES de que la pagina se abre. <br/><br/>
+                       - El apartado de deportes "Adrenalina", se trata diferente. Esto no da problema a el usuario final ya que se arregló esta issue.
+                    </div>
+                  </article>
+
+
+                  <article class="message is-info">
+                    <div class="message-body is-info">
+                      <p class="has-text-weight-medium is-size-5 is-info"> MiBolsillo y sus listas. </p>
+                      Existen algunas publicaciones de "MiBolsillo" que al final del mismo, conserva la lista se sugerencias hacia otros artículos relacionados.
+                    </div>
+                  </article>
+
+
 
 
               </div>
